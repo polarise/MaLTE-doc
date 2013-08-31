@@ -2,27 +2,28 @@
 \BOOKMARK [1][-]{section.2}{Conventions Used}{}
 \BOOKMARK [1][-]{section.3}{System Requirements}{}
 \BOOKMARK [1][-]{section.4}{Installation}{}
-\BOOKMARK [1][-]{section.5}{Gene Expression Prediction}{}
-\BOOKMARK [2][-]{subsection.5.1}{Quick Start Guide}{section.5}
-\BOOKMARK [2][-]{subsection.5.2}{Detailed Instructions}{section.5}
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Sample names file}{subsection.5.2}
-\BOOKMARK [3][-]{subsubsection.5.2.2}{HTS data file}{subsection.5.2}
-\BOOKMARK [3][-]{subsubsection.5.2.3}{Microarray data file}{subsection.5.2}
-\BOOKMARK [3][-]{subsubsection.5.2.4}{Gene-to-probe set map}{subsection.5.2}
-\BOOKMARK [2][-]{subsection.5.3}{Preparing Input Files}{section.5}
-\BOOKMARK [1][-]{section.6}{Transcript Expression Prediction}{}
+\BOOKMARK [1][-]{section.5}{Datasets Provided}{}
+\BOOKMARK [1][-]{section.6}{Gene Expression Prediction}{}
 \BOOKMARK [2][-]{subsection.6.1}{Quick Start Guide}{section.6}
 \BOOKMARK [2][-]{subsection.6.2}{Detailed Instructions}{section.6}
 \BOOKMARK [3][-]{subsubsection.6.2.1}{Sample names file}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.2}{GEP training data file}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.3}{GEP test data file}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Transcript HTS data file}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.5}{Gene-to-transcript map}{subsection.6.2}
+\BOOKMARK [3][-]{subsubsection.6.2.2}{HTS data file}{subsection.6.2}
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Microarray data file}{subsection.6.2}
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Gene-to-probe set map}{subsection.6.2}
 \BOOKMARK [2][-]{subsection.6.3}{Preparing Input Files}{section.6}
-\BOOKMARK [1][-]{section.7}{Filtering and Collating Predictions}{}
-\BOOKMARK [1][-]{section.8}{License}{}
-\BOOKMARK [1][-]{section.9}{Future Work}{}
-\BOOKMARK [1][-]{section.10}{Bug Reports}{}
+\BOOKMARK [1][-]{section.7}{Transcript Expression Prediction}{}
+\BOOKMARK [2][-]{subsection.7.1}{Quick Start Guide}{section.7}
+\BOOKMARK [2][-]{subsection.7.2}{Detailed Instructions}{section.7}
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Sample names file}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.2}{GEP training data file}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.3}{GEP test data file}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Transcript HTS data file}{subsection.7.2}
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Gene-to-transcript map}{subsection.7.2}
+\BOOKMARK [2][-]{subsection.7.3}{Preparing Input Files}{section.7}
+\BOOKMARK [1][-]{section.8}{Filtering and Collating Predictions}{}
+\BOOKMARK [1][-]{section.9}{License}{}
+\BOOKMARK [1][-]{section.10}{Future Work}{}
+\BOOKMARK [1][-]{section.11}{Bug Reports}{}
 \BOOKMARK [1][-]{appendix.A}{The MaLTE Framework}{}
 \BOOKMARK [1][-]{appendix.B}{Classes}{}
 \BOOKMARK [1][-]{appendix.C}{Function and Methods Table}{}

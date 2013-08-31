@@ -31,7 +31,7 @@
 \tableofcontents
 
 \begin{abstract}
-MaLTE is a novel approach to gene and transcript expression prediction that uses a supervised learning approach to achieve performance superior to conventional microarray summarisation. It learns from a gold-standard how best to use fluorescent probe intensity values. This leads to more accurate and absolute expression estimates as well as an simple facility to obtain expression estimates for individual transcript isoforms.
+MaLTE is a novel approach to gene and transcript expression prediction that uses a supervised learning approach to achieve performance superior to conventional microarray summarisation. It learns from a gold standard how best to use fluorescent probe intensity values. This leads to more accurate and absolute expression estimates as well as an simple facility to obtain expression estimates for individual transcript isoforms.
 \end{abstract}
 
 \section{Introduction}
@@ -43,7 +43,7 @@ MaLTE builds gene-specific models from a training and test dataset. The training
 
 This approach overcomes the two main setbacks of conventional algorithms. It transforms expression estimates onto an absolute scale thus dramatically improving the within-sample correlations. MaLTE also naturally extends to predicting expression of individual transcript isoforms by training on the multiple responses of individual transcript isoforms. Moreover, MaLTE leads to substantial improvements in cross-sample correlations, which increase statistical power for tasks such as differential expression analysis and eQTL\footnote{Expression quantitative trait loci} mapping. Finally, a tree-based learning introduces an easy way to filter out poorly-predicted genes through the use of out-of-bag estimates.
 
-MaLTE is particularly suited to large-scale genetic studies involving hundreds to thousands of samples. A representative subset of samples would be subject to long-read, high-depth and wide-coverage RNA-Seq to ensure a high-quality gold-standard transcriptome upon which learning is based. All samples are subjected to the same type of microarray assay. We strongly recommend that the same RNA extractions are used for both RNA-Seq and microarray assays to eliminate batch effects, which can substantially reduce prediction performance. Such an approach will save costs (cheaper than an all-RNA-Seq experiment) while boosting statistical power (many samples with better expression estimates compared to microarray alone).
+MaLTE is particularly suited to large-scale genetic studies involving hundreds to thousands of samples. A representative subset of samples would be subject to long-read, high-depth and wide-coverage RNA-Seq to ensure a high-quality gold standard transcriptome upon which learning is based. All samples are subjected to the same type of microarray assay. We strongly recommend that the same RNA extractions are used for both RNA-Seq and microarray assays to eliminate batch effects, which can substantially reduce prediction performance. Such an approach will save costs (cheaper than an all-RNA-Seq experiment) while boosting statistical power (many samples with better expression estimates compared to microarray alone).
 
 This documents describes how to used the R MaLTE package. It begins with a description on how to get and install the package. It then outlines the two main ways in which the package may be used: \textit{gene expression prediction (GEP)} and \textit{transcript isoform expression prediction (TIEP)}. It concludes with a description on how to filter and collate expression predictions for downstream analyses. It also provides a tentative roadmap for future development as well as a detailed description on how the MaLTE package is built. We invite bug reports, comments and suggestions through the following address: paul.korir@gmail.com.
 
@@ -55,7 +55,7 @@ This documents describes how to used the R MaLTE package. It begins with a descr
 \item Array data used here corresponds to that from \textit{Affymetrix GeneChip$^{\textregistered}$ Human Exon v.1.0 ST} arrays. So far we have only tested MaLTE using Affymetrix GeneChip$^{\textregistered}$ Human Exon and Human Gene arrays.
 \item RNA-Seq data used is already quantified and is independent of the HTS platform used.
 \item All gene and transcript identifiers are from EnsEMBL (http://www.ensembl.org).
-\item All filenames are written in italics (e.g. \textit{filename.txt}), variables in monospace (e.g. \texttt{my.var}), and functions in monospace terminated with parentheses (e.g. \texttt{my.function()}).
+\item All filenames are written in italics (\textit{filename.txt}), variables in monospace (\texttt{my.var}), and functions in monospace terminated with parentheses (\texttt{my.function()}). Classes are in monospace beginning with a capital letter (\texttt{My.Class}) while corresponding constructors additionally terminate with parentheses (\texttt{My.Class()}). Names of software packages are in sans (\textsf{R}, \textsf{MaLTE}, \textsf{Cufflinks})
 \end{itemize}
 
 \section{System Requirements}
@@ -74,6 +74,7 @@ MaLTE may be downloaded from \textless here\textgreater. There are two ways to i
 \begin{verbatim}
 me@home ~$ R CMD INSTALL MaLTE_<release>.tar.gz
 \end{verbatim}
+
 \item Via R shell
 \begin{verbatim}
 > install.packages( "/path/to/MaLTE_<release>.tar.gz" )
@@ -242,6 +243,7 @@ This provides 'raw' data that can directly be used with MaLTE. To do so, the 'ra
 \begin{verbatim}
 me@home ~$ cut -f1,5,8- raw_ma_data.txt > ma_data.txt
 \end{verbatim}
+
 \end{enumerate}
 
 \item Zip the file to save space.
@@ -456,7 +458,7 @@ Please send all bug reports and feature requests to paul.korir@gmail.com with th
 \appendix
 \section{The MaLTE Framework}
 
-The MaLTE framework consists of applying a learning algorithm between gold-standard expression estimates and fluorescent probe intensities. We refer to is as a framework because the constituent components may be modified or entirely overhauled. It is not restricted to the learning algorithms used in the R MaLTE package (conditional random forest); any good learning algorithm may be used. It is also not restricted to one particular gold-standard. Currently, we use RNA-Seq as the gold-standard HTS quantification technique.
+The MaLTE framework consists of applying a learning algorithm between gold standard expression estimates and fluorescent probe intensities. We refer to is as a framework because the constituent components may be modified or entirely overhauled. It is not restricted to the learning algorithms used in the R MaLTE package (conditional random forest); any good learning algorithm may be used. It is also not restricted to one particular gold standard. Currently, we use RNA-Seq as the gold standard HTS quantification technique.
 
 Figure NKK below shows a schematic of the MaLTE framework. Only one gene is presented. However, learning occurs for each gene independently. MaLTE incorporates simple feature selection by picking the best 15 probes that correlate with the RNA-Seq expression.
 
