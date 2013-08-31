@@ -74,6 +74,7 @@ MaLTE may be downloaded from \textless here\textgreater. There are two ways to i
 \begin{verbatim}
 me@home ~$ R CMD INSTALL MaLTE_<release>.tar.gz
 \end{verbatim}
+%$ I've added this commented '$' to ensure that syntax highlighting on github is not off
 \item Via R shell
 \begin{verbatim}
 > install.packages( "/path/to/MaLTE_<release>.tar.gz" )
@@ -234,7 +235,7 @@ me@home ~$ apt-cel-extract -o raw_ma_data.txt
   -b /path/to/HuEx-1_0-st-v2.2/HuEx-1_0-st-v2.r2.antigenomic.bgp 
   -a quant-norm,pm-gcbg *.CEL
 \end{verbatim}
-
+%$
 This provides 'raw' data that can directly be used with MaLTE. To do so, the 'raw' argument in 'prepare.data()' must be set to TRUE (as it is FALSE by default). However, unnecessary columns can be excluded as shown below.
 
 \item[(ii)] Excluding unnecessary columns. Unnecessary columns can be easily excluded using the bash utility 'cut' like so:
@@ -242,6 +243,7 @@ This provides 'raw' data that can directly be used with MaLTE. To do so, the 'ra
 \begin{verbatim}
 me@home ~$ cut -f1,5,8- raw_ma_data.txt > ma_data.txt
 \end{verbatim}
+%$
 \end{enumerate}
 
 \item Zip the file to save space.
@@ -249,7 +251,7 @@ me@home ~$ cut -f1,5,8- raw_ma_data.txt > ma_data.txt
 me@home ~$ gzip raw_ma_data.txt
 me@home ~$ gzip ma_data.txt
 \end{verbatim}
-
+%$
 \item Gene-to-probeset map. This file may be downloaded directly from BioMart, particularly for popular arrays. Alternatively, the user will have prepare it themselves. This can be done using BEDTools. BEDTools takes as input two BED files having coordinates of gene and probe sets, respectively. The 'intersect' BEDTools utility then finds all overlaps between both files and writes them to an extended BED file. The appropriate columns can then be combined to provide the required file.
 
 To use the BED approach, the gene annotation must be provided as a BED file. Similarly, the array's annotation files (available from the Affymetrix website) must be converted to BED format. Both tasks may be performed using custom scripts written in your favourite scripting language.
