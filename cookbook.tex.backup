@@ -59,25 +59,25 @@ This documents describes how to used the \textsf{R} MaLTE package. It begins wit
 \item We interchangeably use \textit{high-throughput sequencing (HTS)} and \textit{RNA-Seq}.
 \item \textit{Array} and \textit{microarray} are equivalent.
 \item A \textit{map} is a tab-delimited text file with two columns with each column consisting of identifiers/names.
-\item Array data used here corresponds to that from \textit{Affymetrix GeneChip$^{\textregistered}$ Human Exon 1.0 ST} arrays. At present we have tested MaLTE only using Affymetrix GeneChip$^{\textregistered}$ Human Exon and Human Gene arrays.
-\item RNA-Seq data used is already quantified and is independent of the HTS platform used.
+\item Array data used here corresponds to that from \textit{Affymetrix GeneChip$^{\textregistered}$ Human Exon 1.0 ST} arrays. At present we have tested \textsf{MaLTE} only using Affymetrix GeneChip$^{\textregistered}$ Human Exon and Human Gene arrays.
+\item RNA-Seq data used is already normalised and is independent of the HTS platform used.
 \item All gene and transcript identifiers are from EnsEMBL (\url{http://www.ensembl.org}).
 \item All filenames are written in italics (\textit{filename.txt}), variables in monospace (\texttt{my.var}), and functions in monospace terminated with parentheses (\texttt{my.function()}). Classes are in monospace beginning with a capital letter (\texttt{My.Class}) while corresponding constructors additionally terminate with parentheses (\texttt{My.Class()}). Names of software packages are in sans (\textsf{R}, \textsf{MaLTE}, \textsf{Cufflinks})
-\item The set of samples used for training are called \textit{training samples}. Test samples refer to the samples that need to have their gene/transcript expression quantified.
+\item The set of samples used for training are called \textit{training samples}. \textit{Test samples} refer to the samples that need to have their gene/transcript expression quantified.
 \end{itemize}
 
 \section{System Requirements}
 \label{system}
 \begin{itemize}
-\item R (2.14.0 or greater) installed on GNU/Linux: MaLTE has been tested on Scientific Linux version 5
-\item Python 2.7 or later
-\item party \textsf{R} package
-\item multicore \textsf{R} package
+\item \textsf{R} (\texttt{2.14.0} or greater) installed on GNU/Linux: \textsf{MaLTE} has been tested on Scientific Linux version 5
+\item \textsf{Python} 2.7 or later
+\item \texttt{party} \textsf{R} package
+\item \texttt{multicore} \textsf{R} package
 \end{itemize}
 
 \section{Installation}
 \label{installation}
-MaLTE may be downloaded from \textless here\textgreater. There are two ways to install MaLTE: via GNU/Linux shell and \textsf{R} shell.
+MaLTE may be downloaded from \url{https://github.com/polarise/MaLTE-package}. There are two ways to install MaLTE: via GNU/Linux shell and \textsf{R} shell.
 
 \begin{enumerate}
 \item Via GNU/Linux shell
@@ -118,55 +118,75 @@ or, quietly:
 \label{gep}
 \subsection{Quick Start Guide}
 \label{gep:quick}
-This section provides a quick introduction to using MaLTE. Detailed instructions incorporating descriptions of the various file and there respective formats is provided in Section \textless\textgreater. We assume that the user is in the R shell, the MaLTE library is loaded and the following data files are available: samples.txt, hts\_data.txt, ma\_data.txt, gene\_probesets.txt.
+This section provides a quick introduction to using MaLTE. Detailed instructions incorporating descriptions of the various file and there respective formats is provided in Section \ref{gep:detailed}. We assume that the user is in the \textsf{R} shell, the MaLTE library is loaded and the following data files are available: \textit{samples.txt}, \textit{hts\_data.txt}, \textit{ma\_data.txt}, \textit{gene\_probesets.txt}.
 
-
+\noindent\\
 \textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
 \begin{verbatim}
 > samples.fn <- paste( system.file( package="MaLTE" ), "data", 
   "samples.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step II:} Provide the location of the file containing the high-throughput sequencing (RNA-Seq) data
 \begin{verbatim}
 > hts.fn <- paste( system.file( package="MaLTE" ), "data", 
   "hts_data.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step III:} Provide the location to the file containing quantile-normalised and background corrected fluorescence probe intensities
 \begin{verbatim}
 > ma.fn <- paste( system.file( package="MaLTE" ), "data", 
   "ma_data.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step IV:} Provide the location of a map showing the probe sets associated with each gene
 \begin{verbatim}
 > g2p.fn <- paste( system.file( package="MaLTE" ), "data", 
   "gene_probesets.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step V:} Prepare the data into training and test sets
 \begin{verbatim}
 > prepare.data( samples.fn=samples.fn, ma.fn=ma.fn, hts.fn=hts.fn, 
   g2p.fn=g2p.fn )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step VI:} Read the data in preparation for the training and test phase
 \begin{verbatim}
 > tt.ready <- read.data( train.fn="train_data.txt.gz", 
   test.fn="test_data.txt.gz" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step VII:} Initialise training parameters
 \begin{verbatim}
 > tt.params <- TT.Params()
 \end{verbatim}
+
+\noindent\\
 \textbf{Step VIII:} Train and predict
 \begin{verbatim}
 > tt.seq <- array2seq( tt.ready, tt.params )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step IX:} Perform out-of-bag (OOB) predictions
 \begin{verbatim}
 > tt.seq.oob <- array2seq.oob( tt.ready, tt.params )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step X:} Filter based on OOB correlations
 \begin{verbatim}
 > tt.filtered <- oob.filter( tt.seq, tt.seq.oob, thresh=0 )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step XI:} Get the names of test samples
 \begin{verbatim}
 > test.names <- get.names( samples.fn, test=TRUE )
@@ -175,7 +195,9 @@ or
 \begin{verbatim}
 > test.names <- get.test( samples.fn )   # get test sample names
 \end{verbatim}
-\textbf{Step XII:} Aggregate predictions and output to a text file for downstream analyses
+
+\noindent\\
+\textbf{Step XII:} Aggregate predictions and write output to a text file for downstream analyses.
 \begin{verbatim}
 > df <- get.predictions( tt.filtered, test.names )
 > write.table( df, file="filt_preds.txt", col.names=T, row.names=F, 
@@ -186,37 +208,37 @@ or
 \label{gep:detailed}
 Gene expression prediction (GEP) depends on having four input files:
 \begin{itemize}
-\item Sample names. A map of sample names between both platforms (HTS and array; possibly zipped)
-\item HTS data. The HTS (RNA-Seq) data in text file (possibly zipped)
-\item Microarray data. The microarray probe data (possibly zipped) 
-\item Gene-to-probeset map. A map of between gene identifiers and probe set identifiers. Probe set identifiers are provided by the array manufacturer as part of the array description.
+\item \textbf{Sample names.} A map of sample names between both platforms (HTS and array; possibly zipped). An example file is provided with the package (Step I).
+\item \textbf{HTS data.} The HTS (RNA-Seq) data in text file (possibly zipped)
+\item \textbf{Microarray data.} The microarray probe data (possibly zipped) 
+\item \textbf{Gene-to-probeset map.} A map between gene identifiers and probe set identifiers. Probe set identifiers are provided by the array manufacturer as part of the array description.
 \end{itemize}
 
-We now describe each file in detail under the following sub-headings: purpose, generic designation, header and structure.
+We now describe each file in detail under the following sub-headings: \textit{purpose}, \textit{generic designation}, \textit{header} and \textit{structure}.
 
 \subsubsection{Sample names file}
 \label{gep:sample}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides a one-to-one map between sample identifiers on both platforms. \\
-Generic designation & 'samples.txt' OR 'samples.txt.gz'; Any suitable name will do but the file name must end either with '.txt' or '.txt.gz'. \\
-Header & 'hts\textless tab\textgreater ma' \\
+\textbf{Purpose} & This file provides a one-to-one map between sample identifiers on both platforms. \\
+\textbf{Generic designation} & \textit{samples.txt} OR \textit{samples.txt.gz}; Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}. \\
+Header & \texttt{hts\textless tab\textgreater ma} \\
 Structure & Two-columns separated by a single tab (tab-delimited) \\
-  & All sample identifiers must be unique and must exactly correspond to sample names present in the headers of the HTS data and microarray data. For example, microarray probe files will usually have headers with sample names terminated by '.CEL'; this must be retained in the sample names file. \\
-  & Test samples are marked by having an asterisk ('*') as the first character. Any other row is assumed to be a training sample. \\
-  & Test samples may consist of having both HTS and array data. If only test array data is present then the first column must be '*NA'. \\
-  & Comments must begin with a pound/hash ('\#') symbol. \\
+  & All sample identifiers must be unique and must exactly correspond to sample names present in the headers of the HTS data and microarray data. For example, microarray probe files will usually have headers with sample names terminated by \textit{*.CEL}; this must be retained in the sample names file. \\
+  & Test samples are marked by having an asterisk (\texttt{`*'}) as the first character. Any other row is assumed to be a training sample. \\
+  & Test samples may consist of having both HTS and array data. If only test array data is present then the first column must be \texttt{`*NA'}. \\
+  & Comments must begin with a pound/hash (\texttt{`\#'}) symbol. \\
 \end{tabular}
 
 \subsubsection{HTS data file}
 \label{gep:hts}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides the HTS expression estimates.\\
-Generic designation & 'hts\_data.txt' OR 'hts\_data.txt.gz' \\
-  & Any suitable name will do. \\
-Header & 'gene\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN' \\
-Structure & Tab-delimited \\
+\textbf{Purpose} & This file provides the HTS expression estimates.\\
+\textbf{Generic designation} & \textit{hts\_data.txt} OR \textit{hts\_data.txt.gz} \\
+  & Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}.. \\
+\textbf{Header} & \texttt{gene\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN} \\
+\textbf{Structure} & Tab-delimited \\
   & All rows must be unique \\
   & No comments are allowed \\
 \end{tabular}
@@ -225,24 +247,24 @@ Structure & Tab-delimited \\
 \label{gep:microarray}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides the microarray expression estimates. \\
-Generic designation & 'ma\_data.txt' OR 'ma\_data.txt.gz' if inessential columns have been removed (see section on Preparing Input Files)
-'raw\_ma\_data.txt' OR 'raw\_ma\_data.txt.gz' if inessential columns are still present (see section on Preparing Input Files) \\
-  & Any suitable name will do. \\
-Header & 'probe\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN' \\
-Structure & Tab-delimited \\
-  & Comments must begin with a pound/hash ('\#') symbol. \\
+\textbf{Purpose} & This file provides the microarray probe intensities. \\
+\textbf{Generic designation} & \textit{ma\_data.txt} OR \textit{ma\_data.txt.gz} if inessential columns have been removed (see Section \ref{gep:prepare} on \textit{Preparing Input Files})
+\textit{raw\_ma\_data.txt} OR \textit{raw\_ma\_data.txt.gz} if inessential columns are still present (see Section \ref{gep:prepare} on \textit{Preparing Input Files}) \\
+  & Any suitable name will do but its name must terminate with \textit{*.txt} or \textit{*.txt.gz}. \\
+\textbf{Header} & \texttt{probe\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN} \\
+\textbf{Structure} & Tab-delimited \\
+  & Comments must begin with a pound/hash (\texttt{`\#'}) symbol. \\
 \end{tabular}
 
 \subsubsection{Gene-to-probe set map}
 \label{gep:gene}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides a one-to-many map of gene identifiers to probe set identifiers. \\
-Generic designation & 'gene\_probesets.txt' OR 'gene\_probesets.txt.gz' \\
-  & Any suitable name will do. \\
-Header & 'gene\_id\textless tab\textgreater probeset\_id' \\
-Structure & Tab-delimited \\
+\textbf{Purpose} & This file provides a one-to-many map of gene identifiers to probe set identifiers. \\
+\textbf{Generic designation} & \textit{gene\_probesets.txt} OR \textit{gene\_probesets.txt.gz} \\
+  & Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}.. \\
+\textbf{Header} & \texttt{gene\_id\textless tab\textgreater probeset\_id} \\
+\textbf{Structure} & Tab-delimited \\
   & Probe set identifiers may be missing for some genes. \\
   & No comments are allowed. \\
 \end{tabular}
@@ -250,14 +272,14 @@ Structure & Tab-delimited \\
 \subsection{Preparing Input Files}
 \label{gep:prepare}
 \begin{enumerate}
-\item Sample names. This file can be prepared using a text editor or preferably using a spreadsheet application such as Microsoft Excel or LibreOffice/OpenOffice Calc. The file must be saved as a tab-delimited text file or a comma-separated values (CSV) file with the field-delimiter set to TABS and the quote-character set to NONE.
+\item \textbf{Sample names.} This file can be prepared using a text editor or preferably using a spreadsheet application such as Microsoft Excel or LibreOffice/OpenOffice Calc. The file must be saved as a tab-delimited text file or a comma-separated values (CSV) file with the field-delimiter set to TABS and the quote-character set to NONE. The file extension must be as described above.
 
-\item HTS data. This file may be constructed using customised scripts that collate the HTS expression estimates output from programmes such as Cufflinks and DESeq. The order of sample columns is unimportant. There are several online datasets that are provided in this format making it easy to proceed with using MaLTE.
+\item \textbf{HTS data.} This file may be constructed using customised scripts that collate the HTS expression estimates output from programmes such as \textsf{Cufflinks} or \textsf{DESeq}. The order of sample columns is unimportant. There are several online datasets\footnote{\url{http://bowtie-bio.sourceforge.net/recount/}} that are provided in this format making it easy to proceed with using MaLTE.
 
-\item Microarray data. Raw microarray data is provided as CEL files. The contents of CEL files need to be extracted and additional pre-processing steps may be applied to the raw data. Two pre-processing steps we recommend are quantile-normalisation (QN) and background correction (BC). The Affymetrix Power Tools (APT) suite is recommended for this and other analytical steps though several R packages have been developed to supplement APT.  Here We describe how to extract fluorescence probe intensities and how to remove unnecessary columns.
+\item \textbf{Microarray data.} Raw microarray data is provided as CEL files. The contents of CEL files need to be extracted and additional pre-processing steps may be applied to the raw data. Two pre-processing steps we recommend are quantile-normalisation (QN) and background correction (BC). The Affymetrix Power Tools (APT) suite is recommended for this and other analytical steps though several \textsf{R} packages have been developed to supplement APT.  Here we describe how to extract fluorescence probe intensities and how to remove unnecessary columns.
 
 \begin{enumerate}
-\item[(i)] Extracting QN and BC microarray probe data. We assume that all CEL files are contained in a single folder. APT requires a set of library files that are available from the Affymetrix website. You require to create an account to download library files and software from this site. The library files consist of array description files used by APT to carry out analyses. More information on these can be found in the manuals provided for each array type. 
+\item[(i)] \textbf{Extracting QN and BC microarray probe data.} We assume that all CEL files are contained in a single folder. APT requires a set of library files that are available from the Affymetrix website. An account will have to be created in order to download library files. The library files consist of array description files used by APT to carry out analyses. More information on these can be found in the manuals provided for each array type. 
 
 To extract probes with QN and BC:
 \begin{verbatim}
@@ -268,9 +290,9 @@ me@home ~$ apt-cel-extract -o raw_ma_data.txt
   -a quant-norm,pm-gcbg *.CEL
 \end{verbatim}
 
-This provides 'raw' data that can directly be used with MaLTE. To do so, the 'raw' argument in 'prepare.data()' must be set to TRUE (as it is FALSE by default). However, unnecessary columns can be excluded as shown below.
+This provides `raw' data that can directly be used with MaLTE. To do so, the \texttt{raw} argument in \texttt{prepare.data()} must be set to \texttt{TRUE} (as it is \texttt{FALSE} by default). However, unnecessary columns can be excluded as shown below.
 
-\item[(ii)] Excluding unnecessary columns. Unnecessary columns can be easily excluded using the bash utility 'cut' like so:
+\item[(ii)] \textbf{Excluding unnecessary columns.} Unnecessary columns can be easily excluded using the bash utility \texttt{cut} like so:
 
 \begin{verbatim}
 me@home ~$ cut -f1,5,8- raw_ma_data.txt > ma_data.txt
@@ -278,17 +300,17 @@ me@home ~$ cut -f1,5,8- raw_ma_data.txt > ma_data.txt
 
 \end{enumerate}
 
-\item Zip the file to save space.
+\item \textbf{Zip the file to save space.}
 \begin{verbatim}
 me@home ~$ gzip raw_ma_data.txt
 me@home ~$ gzip ma_data.txt
 \end{verbatim}
 
-\item Gene-to-probeset map. This file may be downloaded directly from BioMart, particularly for popular arrays. Alternatively, the user will have prepare it themselves. This can be done using BEDTools. BEDTools takes as input two BED files having coordinates of gene and probe sets, respectively. The 'intersect' BEDTools utility then finds all overlaps between both files and writes them to an extended BED file. The appropriate columns can then be combined to provide the required file.
+\item \textbf{Gene-to-probeset map.} This file may be downloaded directly from \textsf{BioMart}, particularly for popular arrays. Alternatively, the user may have prepare it themselves. This can be done using \textsf{BEDTools}. \textsf{BEDTools} takes as input two BED files having coordinates of gene and probe sets, respectively. The \texttt{intersect} \textsf{BEDTools} utility then finds all overlaps between both files and writes them to an extended BED file. The appropriate columns can then be combined to provide the required file.
 
 To use the BED approach, the gene annotation must be provided as a BED file. Similarly, the array's annotation files (available from the Affymetrix website) must be converted to BED format. Both tasks may be performed using custom scripts written in your favourite scripting language.
 
-Please consult the BEDTools website on how to intersect two BED files.
+Please consult the \textsf{BEDTools} website on how to intersect two BED files.
 
 The gene and probe set columns can then be isolated in a manner similar to sub-step (2) above.
 \end{enumerate}
@@ -299,30 +321,39 @@ The gene and probe set columns can then be isolated in a manner similar to sub-s
 
 \subsection{Quick Start Guide}
 \label{tiep:quick}
-This describes how to perform transcript expression prediction in quick steps. It assumes that the user has logged into an R shell, the MaLTE package is loaded and that the following files are available: \textit{samples.txt}, \textit{train\_data.txt.gz}, \textit{test\_data.txt.gz}, \textit{hts\_txs\_data.txt}, and gene\_transcripts.txt.
+This section describes how to perform transcript expression prediction in quick steps. It assumes that the user has logged into an \textsf{R} shell, the \textsf{MaLTE} package is loaded and that the following files are available: \textit{samples.txt}, \textit{train\_data.txt.gz}, \textit{test\_data.txt.gz}, \textit{hts\_txs\_data.txt}, and \textit{gene\_transcripts.txt}.
 
-The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produced by running Step V in the Gene Expression Prediction: Quick Start Guide.
+The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produced by running Step V in Section \ref{gep:quick} \textit{Gene Expression Prediction: Quick Start Guide}.
 
-\noindent\textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
+\noindent\\
+\textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
 \begin{verbatim}
-> samples.fn <- paste( system.file( package="MaLTE" ), "data", "samples.txt.gz", 
-  sep="/" )
+> samples.fn <- paste( system.file( package="MaLTE" ), "data", 
+  "samples.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step II:} Provide the location of the file containing the high-throughput sequencing (RNA-Seq) transcript isoform expression estimates
 \begin{verbatim}
 > hts.txs.fn <- paste( system.file( package="MaLTE" ), "data", 
   "hts_txs_data.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step III:} Provide the location of map of gene-to-transcript identifiers
 \begin{verbatim}
 > g2tx.fn <- paste( system.file( package="MaLTE" ), "data", 
   "gene_transcripts.txt.gz", sep="/" )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step IV:} Prepare the data into training and test sets
 \begin{verbatim}
 > prepare.txs.data( samples.fn=samples.fn, train.fn="train_data.txt.gz", 
   test.fn="test_data.txt.gz", hts.txs.fn=hts.txs.fn, g2tx.fn=g2tx.fn )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step V:} Read in the data in preparation for training and preparation
 \begin{verbatim}
 > tt.ready.txs <- read.txs.data( train.fn="train_txs_data.txt.gz", 
@@ -332,6 +363,8 @@ The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produce
 \begin{verbatim}
 > tt.seq.txs <- array2seq( tt.ready.txs, tt.params )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step VII:} Train and predict for OOB estimates
 \begin{verbatim}
 > tt.seq.oob.txs <- array2seq.oob( tt.ready.txs, tt.params )
@@ -340,6 +373,8 @@ The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produce
 \begin{verbatim}
 > tt.filtered.txs <- oob.filter( tt.seq.txs, tt.seq.oob.txs, thresh=0 )
 \end{verbatim}
+
+\noindent\\
 \textbf{Step IX:} Get test sample names
 \begin{verbatim}
 > test.names <- get.names( samples.fn, test=TRUE )
@@ -348,146 +383,139 @@ or
 \begin{verbatim}
 > test.names <- get.test( samples.fn )   # get test sample names
 \end{verbatim}
+
+\noindent\\
 \textbf{Step X:} Collate predicted transcript isoform predictions and write them to a text file for downstream analyses
 \begin{verbatim}
 > df.txs <- get.predictions( tt.filtered.txs, test.names )
-> df.oob.txs <- get.predictions( tt.seq.oob.txs, train.names ) # again, just 
-  for the fun of it
 \end{verbatim}
 
 \subsection{Detailed Instructions}
+\label{tiep:detailed}
 Transcript isoform expression prediciton (TIEP) depends on having five input files:
 \begin{itemize}
-\item Sample names. A map of sample names between both platforms (HTS and array; possibly zipped). This is the exact same file used in GEP above.
-\item GEP Training data. The name of this file is 'train\_data.txt.gz'. It is the first zipped output produced by running 'prepare.data()' prior to carrying out GEP.
-\item GEP Test data. The name of this file is 'test\_data.txt.gz'. It is the second zipped output produced by running 'prepare.data()' prior to carrying out GEP.
-\item Transcript HTS data. The HTS (RNA-Seq) transcript isoform data in text file (possibly zipped)
-\item Gene-to-transcript map. A map of between gene identifiers and transcript identifiers. 
+\item \textbf{Sample names.} A map of sample names between both platforms (HTS and array; possibly zipped). This is the exact same file used in GEP above.
+\item \textbf{GEP Training data.} The name of this file is \textit{train\_data.txt.gz}. It is the first zipped output produced by running \texttt{prepare.data()} prior to carrying out GEP.
+\item \textbf{GEP Test data.} The name of this file is \textit{test\_data.txt.gz}. It is the second zipped output produced by running \texttt{prepare.data()} prior to carrying out GEP.
+\item \textbf{Transcript HTS data.} The HTS (RNA-Seq) transcript isoform data in text file (possibly zipped)
+\item \textbf{Gene-to-transcript map.} A map of between gene identifiers and transcript identifiers. 
 \end{itemize}
 
 \subsubsection{Sample names file}
+\label{tiep:sample}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides a one-to-one map between sample identifiers on both platforms. \\
-Generic designation & 'samples.txt' OR 'samples.txt.gz' \\
-   & Any suitable name will do. \\
-Header & 'hts\textless tab\textgreater ma' \\
-Structure & Two-columns separated by a single tab (tab-delimited) \\
-  & All sample identifiers must be unique and must exactly correspond to sample names present in the headers of the HTS data and microarray data. For example, microarray probe files will usually have headers with sample names terminated by '.CEL'; this must be retained in the sample names file. \\
-  & Test samples are marked by having an asterisk ('*') as the first character. Any other row is assumed to be a training sample. \\
-  & Test samples may consist of having both HTS and array data. If only test array data is present then the first column must be '*NA'. \\
-  & Comments must begin with a pound/hash ('\#') symbol. \\
+\textbf{Purpose} & This file provides a one-to-one map between sample identifiers on both platforms. \\
+\textbf{Generic designation} & \textit{samples.txt} OR \textit{samples.txt.gz} \\
+   & Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}.. \\
+\textbf{Header} & \texttt{hts\textless tab\textgreater ma} \\
+\textbf{Structure} & Two-columns separated by a single tab (tab-delimited) \\
+  & All sample identifiers must be unique and must exactly correspond to sample names present in the headers of the HTS data and microarray data. For example, microarray probe files will usually have headers with sample names terminated by \textit{*.CEL}; this must be retained in the sample names file. \\
+  & Test samples are marked by having an asterisk (\texttt{`*'}) as the first character. Any other row is assumed to be a training sample. \\
+  & Test samples may consist of having both HTS and array data. If only test array data is present then the first column must be \texttt{`*NA'}. \\
+  & Comments must begin with a pound/hash (\texttt{`\#'}) symbol. \\
 \end{tabular}
 
 \subsubsection{GEP training data file}
+\label{tiep:gep_train}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file contains that gene-to-probe training data that will be used to create new transcripts-to-probes training data. \\
-Generic designation & 'train\_data.txt.gz' \\
-  & This file is produced after running 'prepare.data()'. \\
-Header & None \\
-Structure & This file has six columns. This data is automatically generate by the 'prepare.data()' function. \\
+\textbf{Purpose} & This file contains that gene-to-probe training data that will be used to create new transcripts-to-probes training data. \\
+\textbf{Generic designation} & \textit{train\_data.txt.gz} \\
+  & This file is produced after running \texttt{prepare.data()}. \\
+\textbf{Header} & None \\
+\textbf{Structure} & This file has six columns. This data is automatically generate by the \texttt{prepare.data()} function. \\
   & Gene identifier \\
   & Number of training samples \\
   & Number of probes associated with this gene \\
   & Probe (not probe set) identifiers associated with this gene \\
   & HTS expression estimates \\
-  & Vectorised matrix{footnote} of fluorescent probe intensities \\
+  & Vectorised matrix\footnotemark[1] of fluorescent probe intensities \\
 \end{tabular}
+\footnotemark[1]{A \textit{vectorised matrix} is a stack of the columns into a single column vector.}
 
 \subsubsection{GEP test data file}
+\label{tiep:gep_test}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file contains that gene-to-probe training data that will be used to create new transcripts-to-probes training data. \\
-Generic designation & 'test\_data.txt.gz' \\
-Header & None \\
-Structure & This file has six columns. This data is automatically generate by the 'prepare.data()' function. \\
+\textbf{Purpose} & This file contains that gene-to-probe training data that will be used to create new transcripts-to-probes training data. \\
+\textbf{Generic designation} & \textit{test\_data.txt.gz} \\
+\textbf{Header} & None \\
+\textbf{Structure} & This file has six columns. This data is automatically generate by the \texttt{prepare.data()} function. \\
   & Gene identifier \\
   & Number of test samples \\
   & Number of probes associated with this gene \\
   & Probe (not probe set) identifiers associated with this gene \\
   & HTS expression estimates \\
-  & Vectorised matrix{footnote} of fluorescent probe intensities
+  & Vectorised matrix of fluorescent probe intensities
 \end{tabular}
 
 \subsubsection{Transcript HTS data file}
+\label{tiep:transcript}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides the HTS transcript isoform expression estimates. \\
-Generic designation & 'hts\_txs\_data.txt' OR 'hts\_txs\_data.txt.gz' \\
-  & Any suitable name will do. \\
-Header & 'tx\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN' \\
-Structure & Tab-delimited \\
+\textbf{Purpose} & This file provides the HTS transcript isoform expression estimates. \\
+\textbf{Generic designation} & 'hts\_txs\_data.txt' OR 'hts\_txs\_data.txt.gz' \\
+  & Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}.. \\
+\textbf{Header} & \texttt{tx\_id\textless tab\textgreater Sample01\textless tab\textgreater...\textless tab\textgreater SampleN} \\
+\textbf{Structure} & Tab-delimited \\
   & All rows must be unique \\
   & No comments are allowed \\
 \end{tabular}
 
 \subsubsection{Gene-to-transcript map}
+\label{tiep:gene}
 
 \begin{tabular}{rp{12cm}}
-Purpose & This file provides a one-to-many map of gene identifiers to transcript  identifiers. \\
-Generic designation & 'gene\_transcripts.txt' OR 'gene\_transcripts.txt.gz' \\
-  & Any suitable name will do. \\
-Header & 'gene\_id\textless tab\textgreater tx\_id' \\
-Structure & Tab-delimited \\
+\textbf{Purpose} & This file provides a one-to-many map of gene identifiers to transcript  identifiers. \\
+\textbf{Generic designation} & \textit{gene\_transcripts.txt} OR \textit{gene\_transcripts.txt.gz} \\
+  & Any suitable name will do but the file name must end either with \textit{*.txt} or \textit{*.txt.gz}.. \\
+\textbf{Header} & \texttt{gene\_id\textless tab\textgreater tx\_id} \\
+\textbf{Structure} & Tab-delimited \\
   & No comments are allowed. \\
 \end{tabular}
 
 \subsection{Preparing Input Files}
+\label{tiep:prepare}
 \begin{enumerate}
-\item Sample names. Please see Section GEP: Preparing Input Files.
+\item \textbf{Sample names.} Please see Section GEP: Preparing Input Files.
 
-\item GEP training data. This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
+\item \textbf{GEP training data.} This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
 
-\item GEP test data. This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
+\item \textbf{GEP test data.} This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
 
-\item Transcript HTS data file. Several programs are available that perform transcript isoform expression quantification from HTS data. Popular examples include Cufflinks (1 and 2), IsoEM and RSEM. As suggested in HTS data description in GEP: Preparing Input Files, custom scripts should be used to combine expression estimates. Sample names in the header must exactly correspond to those in the Sample names file. The order of samples is not important.
+\item \textbf{Transcript HTS data file.} Several programs are available that perform transcript isoform expression quantification from HTS data. Popular examples include \textsf{Cufflinks}, \textsf{IsoEM} and \textsf{RSEM}. As suggested in HTS data description in \textit{GEP: Preparing Input Files}, custom scripts should be used to combine expression estimates. Sample names in the header must exactly correspond to those in the Sample names file. The order of samples is not important.
 
-\item Gene-to-transcript map. A man of gene to transcript identifiers is most easily obtained off BioMart [cite].
+\item \textbf{Gene-to-transcript map.} A man of gene to transcript identifiers is most easily obtained off BioMart [cite].
 \end{enumerate}
 
 \section{Filtering and Collating Predictions}
+\label{filtering}
+Steps IX and X of show GEP OOB filtering and step VII and VIII show TIEP OOB filtering.
+
+Collation can only performed on filtered data. The sample names must first be obtained (GEP: Step XI; TIEP: Step X). Sample names are extracted from the Sample names file.
+
+Finally, extracted data may be written to a tab-delimited (or otherwise) text file using the usual \textsf{R} functions.
+
 The training and prediction step produces data in an internal format that is not suitable for further bioinformatic analyses. The prediction estimates need to be filtered to exclude poor predictions then finally converted into a data-frame that can then be saved as a tab-delimited text file.
 
 Filtering takes advantage of the tree-based learning algorithm. Conditional random forests are used in the current implementation of MaLTE. A forest is an ensemble of trees, with each tree constructed by bootstrapping on the training data. This involves randomly selected a subset of the training samples and constructing a tree using a recursive partition approach. This is repeated for hundreds to thousands of trees. Each sample (observation) is only used to construct a subset of all the trees. We can then use the trees in which it is absent to predict its value. This also applies to all the other samples (observations).
 
 The resulting predicted estimates are called the out-of-bag (OOB) estimates because they predict each observation using the subset of trees for which it was 'out of bag'. Our results suggest that the OOB estimates give a good indication of how reliably a particular gene will have its expression predicted. We measure this performance using the OOB Pearson correlation, which is the correlation between the training HTS and the OOB predictions. An OOB Pearson correlation threshold of zero ($r_{\mathrm{OOB}} > 0$) is currently set as a default filter threshold. This is referred to as OOB filtering.
 
-Steps IX and X of show GEP OOB filtering and step VII and VIII show TIEP OOB filtering.
-
-Collation can only performed on filtered data. The sample names must first be obtained (GEP: Step XI; TIEP: Step X). Sample names are extracted from the Sample names file.
-
-Finally, extracted data may be written to a tab-delimited (or otherwise) text file using the usual R functions.
-
-\section{License}
-\begin{verbatim}
-Copyright (C) 2013  Paul K. Korir 
-
-This program is free software: you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the 
-Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-This program is distributed in the hope that it will be useful, but 
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License 
-for more details.
-
-You should have received a copy of the GNU General Public License along 
-with this program.  If not, see <http://www.gnu.org/licenses/>.
-\end{verbatim}
-
 \section{Future Work}
+\label{future}
 We hope to make further improvements to MaLTE depending on whether it finds widespread use. The following list of features may be added at a future data:
 \begin{enumerate}
-\item \textbf{Replace the underlying Python scripts with C/C++ programs.} We used Python because it was relatively simple to put together and it has mature data structures. Python scripts are slower than C/C++ programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts MaLTE to GNU/Linux and Unix-like systems.
+\item \textbf{Replace the underlying \textsf{Python} scripts with C/C++ programs.} We used \textsf{Python} because it was relatively simple to put together and it has mature data structures. \textsf{Python} scripts are slower than \textsf{C/C}\verb!++! programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts MaLTE to GNU/Linux and Unix-like systems.
 \item \textbf{Configure training and test data using a standardised structured file format.} Currently, training and test data is held in custom tab-delimited files. We would like to transition either to XML or HDF.
-\item \textbf{Expand the use of the \textit{Sample names} file.} Currently, the sample names file is underutilised. It should be possible to include additional columns that could be incorporated into the learning process. For example, a column on batch information could be passed to ComBat to minimise batch effects. Other variables such as tissue type could be important for training.
+\item \textbf{Expand the use of the sample names (\textit{samples.txt}) file.} Currently, the sample names file is underutilised. It should be possible to include additional columns that could be incorporated into the learning process. For example, a column on batch information could be passed to ComBat to minimise batch effects. Other variables such as tissue type could be important for training.
 \item \textbf{Automatic parameter tuning.} We would like to incorporate a tuning utility that uses a random sample of the training data to optimise the training parameters.
 \end{enumerate}
 
 \section{Bug Reports}
-Please send all bug reports and feature requests to paul.korir@gmail.com with the subject 'MaLTE Bugs' of 'MaLTE Features', respectively.
+\label{bugs}
+Please send all bug reports and feature requests to \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com} with the subject `MaLTE Bugs' of `MaLTE Features', respectively.
 
 
 \begin{thebibliography}{50}
@@ -504,26 +532,28 @@ Please send all bug reports and feature requests to paul.korir@gmail.com with th
 \pagebreak
 \appendix
 \section{Classes}
+\label{classes}
 The R MaLTE package uses three main classes.
 \begin{enumerate}
-\item TT.Ready. This class handles data 'ready' for training and test. It is an abstract base class from which two other classes are derived:
+\item \texttt{TT.Ready}. This class handles data \textit{ready} for training and test. It is an abstract base class from which two other classes are derived:
 \begin{enumerate}
-\item[(i)] TT.Ready.Gene. This class handles gene expression training and prediction data.
-\item[(ii)] TT.Ready.Txs. This is for transcript isoform expression data.
+\item[(i)] \texttt{TT.Ready.Gene}. This class handles gene expression training and prediction data.
+\item[(ii)] \texttt{TT.Ready.Txs}. This is for transcript isoform expression data.
 \end{enumerate}
 
-\item TT.Seq. This class handles the results of training and prediction. Just like TT.Ready, this is an abstract base class with two derived classes:
+\item \texttt{TT.Seq}. This class handles the results of training and prediction. Just like \texttt{TT.Ready}, this is an abstract base class with two derived classes:
 \begin{enumerate}
-\item[(i)] TT.Seq.Gene for gene predictions. Both test and OOB predictions are of this class.
-\item[(ii)] TT.Seq.Txs for transcript isoform predictions similar to TT.Seq.Gene.
+\item[(i)] \texttt{TT.Seq.Gene} for gene predictions. Both test and OOB predictions are of this class.
+\item[(ii)] \texttt{TT.Seq.Txs} for transcript isoform predictions similar to \texttt{TT.Seq.Gene}.
 \end{enumerate}
 
-\item TT.Params. This class handles training and prediction parameters passed to the train.and.predict (alias run) methods of TT.Ready objects. It has the following slots: mtry, ntree, feature.select, min.probes, cor.thresh, and OOB.
+\item \texttt{TT.Params}. This class handles training and prediction parameters passed to the train.and.predict (alias run) methods of TT.Ready objects. It has the following slots: \texttt{mtry}, \texttt{ntree}, \texttt{feature.select}, \texttt{min.probes}, \texttt{cor.thresh}, and \texttt{OOB}.
 \end{enumerate}
 
-More information on these classes can be found in the MaLTE manual that accompanies package.
+More information on these classes can be found in the \textsf{MaLTE} manual that accompanies package.
 
 \section{Function and Methods Table}
+\label{functions}
 
 \begin{table}[H]
 \scriptsize
@@ -532,41 +562,60 @@ More information on these classes can be found in the MaLTE manual that accompan
 \hline
 \textbf{Function/Methods} & \textbf{Input} & \textbf{Output} & \textbf{Comments} \\
 \hline
-prepare.data & samples.fn, ma.fn (OR raw\_ma.fn with raw=TRUE), hts.fn, g2p.fn & 'train\_data.txt.gz' and 'test\_data.txt.gz'  (together with log files indicating which genes are missing) & This function calls the underlying Python script 'prepare\_data.py', which can be called directly by the user. All output is written to the current directory. \\
+\texttt{prepare.data()} & \texttt{samples.fn}, \texttt{ma.fn} (OR \texttt{raw\_ma.fn} with \texttt{raw=TRUE}), \texttt{hts.fn}, \texttt{g2p.fn} & \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz}  (together with log files indicating which genes are missing) & This function calls the underlying \textsf{Python} script \textit{prepare\_data.py}, which can be called directly by the user. All output is written to the current directory. \\
 \hline
-read.data & train.fn='train\_data.txt.gz', test.fn='test\_data.txt.gz' & tt.ready & tt.ready is a list of objects of class TT.Ready.Gene that has embedded within it the training and testing data. \\
+\texttt{read.data()} & \texttt{train.fn=`train\_data.txt.gz'}, \texttt{test.fn=`test\_data.txt.gz'} & \texttt{tt.ready} & \texttt{tt.ready} is a list of objects of class \texttt{TT.Ready.Gene} that has embedded within it the training and testing data. \\
 \hline
-prepare.txs.data & samples.fn, train.fn, test.fn, hts.txs.fn, g2tx.fn & 'train\_txs\_data.txt.gz', 'test\_txs\_data.txt.gz' (together with log files indicating which genes are missing) & 
-This function works like prepare.data(...) by calling the undlying Python script 'prepare\_txs\_data.py', which can be called directly. All output is written to the current directory. \\
+\texttt{prepare.txs.data()} & \texttt{samples.fn}, \texttt{train.fn}, \texttt{test.fn}, \texttt{hts.txs.fn}, \texttt{g2tx.fn} & \textit{train\_txs\_data.txt.gz}, \textit{test\_txs\_data.txt.gz} (together with log files indicating which genes are missing) & 
+This function works like \texttt{prepare.data()} by calling the undlying \textsf{Python} script \textit{prepare\_txs\_data.py}, which can be called directly. All output is written to the current directory. \\
 \hline
-read.txs.data & train.fn='train\_txs\_data.txt.gz', test.fn='test\_txs\_data.txt.gz' & tt.ready.txs & tt.ready.txs is a list of objects of class TT.Ready.Txs \\
+\texttt{read.txs.data()} & \texttt{train.fn='train\_txs\_data.txt.gz'}, \texttt{test.fn='test\_txs\_data.txt.gz'} & \texttt{tt.ready.txs} & \texttt{tt.ready.txs} is a list of objects of class \texttt{TT.Ready.Txs} \\
 \hline
-TT.Params & mtry, ntree, feature.select, min.probes, cor.thresh, OOB & tt.params & Constructor for objects of class TT.Params \\
+\texttt{TT.Params()} & \texttt{mtry=2}, \texttt{ntree=1000}, \texttt{feature.select=TRUE}, \texttt{min.probes=15}, \texttt{cor.thresh=0}, \texttt{OOB=FALSE} & \texttt{tt.params} & Constructor for objects of class \texttt{TT.Params} \\
 \hline
-run, oob.run & TT.Ready object, tt.params, OOB & TT.Seq object & Performs prediction on a single TT.Ready.Gene or TT.Ready.Txs object. \\
+\texttt{run()}, \texttt{oob.run()} & \texttt{TT.Ready} object, \texttt{tt.params}, \texttt{OOB=FALSE} & \texttt{TT.Seq} object & Performs prediction on a single \texttt{TT.Ready.Gene} or \texttt{TT.Ready.Txs} object. \\
 \hline
-array2seq, array2seq.oob & tt.ready/tt.ready.txs, tt.params & tt.seq OR tt.seq.txs & tt.seq is a list of TT.Seq.Gene or TT.Seq.Tx objects. \\
- & & & The parallelised-list version of 'predict' \\
+\texttt{array2seq()}, \texttt{array2seq.oob()} & \texttt{tt.ready}/\texttt{tt.ready.txs}, \texttt{tt.params} & \texttt{tt.seq} OR \texttt{tt.seq.txs} & \texttt{tt.seq} is a list of \texttt{TT.Seq.Gene} or \texttt{TT.Seq.Tx} objects. \\
+ & & & The parallelised-list version of \texttt{run()/oob.run()} \\
  & & & The tuned parameters are obtained by running 'tune'. \\
 \hline
-oob.filter & tt.seq/tt.seq.txs, tt.seq.oob/tt.seq.oob.txs (resp.), thresh & tt.filtered & tt.filtered is a list of objects of class TT.Seq.Gene \\
- & & & tt.filtered.txs is a list of objects of class TT.Seq.Tx \\
+\texttt{oob.filter()} & \texttt{tt.seq/tt.seq.txs}, \texttt{tt.seq.oob/tt.seq.oob.txs} (resp.), \texttt{thresh} & \texttt{tt.filtered} & \texttt{tt.filtered} is a list of objects of class \texttt{TT.Seq.Gene} \\
+ & & & \texttt{tt.filtered.txs} is a list of objects of class \texttt{TT.Seq.Tx} \\
 \hline
-tune & tt.ready & tt.params & Uses the training data to find the best parameters to use. Evaluation is based on OOB estimates only. \\
- & & & tt.params is an object of class TT.Params \\
+*\texttt{tune()} & \texttt{tt.ready} & \texttt{tt.params} & Uses the training data to find the best parameters to use. Evaluation is based on OOB estimates only. \\
+ & & & \texttt{tt.params} is an object of class \texttt{TT.Params} \\
 \hline
-predictions & TT.Seq.Gene OR TT.Seq.Txs & tt.predicted OR tt.predicted.txs & Method to extract predictions only \\
+\texttt{predictions()} & \texttt{TT.Seq.Gene} OR \texttt{TT.Seq.Txs} & \texttt{tt.predicted} OR \texttt{tt.predicted.txs} & Method to extract predictions only \\
 \hline
-get.predictions & tt.filtered OR tt.filtered.txs & df & df is a data.frame of predictions \\
+\texttt{get.predictions()} & \texttt{tt.filtered} OR \texttt{tt.filtered.txs} & \texttt{df} & \texttt{df} is a data frame of predictions \\
 \hline
-cor.P & tt.seq.oob OR tt.seq.oob.txs &  & Method to extract Pearson correlations only when HTS is available for test data \\
+\texttt{cor.P()} & \texttt{tt.seq.oob} OR \texttt{tt.seq.oob.txs} &  & Method to extract Pearson correlations only when HTS is available for test data \\
 \hline
-cor.S & tt.seq.oob OR tt.seq.oob.txs &  & Method to extract Spearman correlations only when HTS is available for test data \\
+\texttt{cor.S()} & \texttt{tt.seq.oob} OR \texttt{tt.seq.oob.txs} &  & Method to extract Spearman correlations only when HTS is available for test data \\
 \hline
-get.names, get.train, get.test & samples.fn='samples.txt' & sample.names & Returns a list of names of train/test samples \\
+\texttt{get.names()}, \texttt{get.train()}, \texttt{get.test()} & \texttt{samples.fn='samples.txt'} & \texttt{sample.names} & Returns a list of names of train/test samples \\
 \hline
 \end{tabular}
 \end{table}
 % \end{landscape}
+
+\section{License}
+\label{license}
+\begin{verbatim}
+Copyright (C) 2013  Paul K. Korir 
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the 
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License 
+for more details.
+
+You should have received a copy of the GNU General Public License along 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+\end{verbatim}
 
 \end{document}

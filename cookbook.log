@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.8)  8 OCT 2013 22:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.8)  10 OCT 2013 00:25
 entering extended mode
  %&-line parsing enabled.
 **cookbook.tex
@@ -789,256 +789,332 @@ T1/cmtt/m/n/12 my.function()\OT1/ppl/m/n/12 ). Classes
  []
 
 [4]
-LaTeX Font Info:    Try loading font information for OML+ppl on input line 80.
- (/usr/share/texmf-texlive/tex/latex/psnfss/omlppl.fd
-File: omlppl.fd 
-)
-LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 80.
+Overfull \hbox (13.79819pt too wide) in paragraph at lines 80--81
+\OT1/cmss/m/n/12 MaLTE \OT1/ppl/m/n/12 may be down-loaded from []$\OT1/cmtt/m/n
+/12 https : / / github . com / polarise / MaLTE-[]package$[]\OT1/ppl/m/n/12 . T
+here
+ []
+
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 119.
 
-Overfull \hbox (39.6626pt too wide) in paragraph at lines 121--122
-\OT1/ppl/m/n/12 the fol-low-ing data files are avail-able: sam-ples.txt, hts[]d
-ata.txt, ma[]data.txt, gene[]probesets.txt. 
+Overfull \hbox (16.26317pt too wide) in paragraph at lines 121--122
+\OT1/ppl/m/n/12 the fol-low-ing data files are avail-able: \OT1/ppl/m/it/12 sam
+-ples.txt\OT1/ppl/m/n/12 , \OT1/ppl/m/it/12 hts[]data.txt\OT1/ppl/m/n/12 , \OT1
+/ppl/m/it/12 ma[]data.txt\OT1/ppl/m/n/12 , \OT1/ppl/m/it/12 gene[]probesets.txt
+\OT1/ppl/m/n/12 . 
  []
 
 [5] [6]
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 200--210
-[] 
- []
+LaTeX Font Info:    Try loading font information for OML+cmtt on input line 225
+.
+LaTeX Font Info:    No file OMLcmtt.fd. on input line 225.
 
 
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 214--223
+LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
+(Font)              using `OML/cmm/m/it' instead
+(Font)              for symbol `textless' on input line 225.
+
+
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 222--232
 [] 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 229--231
-[]\OT1/ppl/m/n/12 'ma[]data.txt' OR 'ma[]data.txt.gz' if inessen-tial columns
- []
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 229--231
-\OT1/ppl/m/n/12 have been re-moved (see sec-tion on Prepar-ing In-put Files)
- []
-
-
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 227--236
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 236--245
 [] 
  []
 
 
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 240--249
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 249--258
 [] 
  []
 
 
-Overfull \hbox (3.2299pt too wide) in paragraph at lines 257--258
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 262--271
+[] 
+ []
+
+[8]
+Overfull \hbox (3.2299pt too wide) in paragraph at lines 279--280
 \OT1/ppl/m/n/12 normalisation (QN) and back-ground cor-rec-tion (BC). The Affym
 etrix Power Tools
  []
 
-[8] [9]
-Overfull \hbox (41.03235pt too wide) in paragraph at lines 310--310
-[]\OT1/cmtt/m/n/12 > samples.fn <- paste( system.file( package="MaLTE" ), "data
-", "samples.txt.gz",[] 
- []
-
-
-Overfull \hbox (16.33234pt too wide) in paragraph at lines 356--356
-[]\OT1/cmtt/m/n/12 > df.oob.txs <- get.predictions( tt.seq.oob.txs, train.names
- ) # again, just[] 
- []
-
-[10]
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 370--381
+[9] [10] [11]
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 407--418
 [] 
  []
 
 
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 384--397
-[] 
- []
-
-[11]
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 400--412
-[] 
- []
-
-
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 415--424
-[] 
- []
-
-
-Overfull \hbox (18.91576pt too wide) in paragraph at lines 427--435
-[] 
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 422--436
+[]
  []
 
 [12]
-Overfull \hbox (15.49301pt too wide) in paragraph at lines 440--441
-[]\OT1/ppl/m/n/12 GEP train-ing data. This file is au-to-mat-i-cally gen-er-ate
-d af-ter run-ning 'pre-pare.data()'
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 440--452
+[] 
+ []
+
+
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 456--465
+[] 
+ []
+
+
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 469--477
+[] 
  []
 
 [13]
-Overfull \hbox (3.98233pt too wide) in paragraph at lines 478--478
-[]\OT1/cmtt/m/n/12 WITHOUT ANY WARRANTY; without even the implied warranty of M
-ERCHANTABILITY[] 
+Overfull \hbox (18.21758pt too wide) in paragraph at lines 483--484
+[]\OT1/ppl/b/n/12 GEP train-ing data. \OT1/ppl/m/n/12 This file is au-to-mat-i-
+cally gen-er-ated af-ter run-ning 'pre-pare.data()'
  []
 
+[14]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 485.
-[14] [15]
-Overfull \hbox (8.6419pt too wide) in paragraph at lines 515--516
-[]\OT1/ppl/m/n/12 TT.Seq. This class han-dles the re-sults of train-ing and pre
--dic-tion. Just like TT.Ready,
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 512.
+ [15] [16]
+Overfull \hbox (10.24097pt too wide) in paragraph at lines 544--545
+[]\OT1/cmtt/m/n/12 TT.Seq\OT1/ppl/m/n/12 . This class han-dles the re-sults of 
+train-ing and pre-dic-tion. Just like \OT1/cmtt/m/n/12 TT.Ready\OT1/ppl/m/n/12 
+,
  []
 
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 531.
+(Font)              scaled to size 5.21004pt on input line 561.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 531.
+(Font)              scaled to size 5.21004pt on input line 561.
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 533.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 563.
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--535
-[]\OT1/ppl/m/n/8 samples.fn, ma.fn (OR
+Underfull \hbox (badness 10000) in paragraph at lines 565--565
+[]\OT1/cmtt/m/n/8 samples.fn\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 ma.fn \OT1/ppl/m/n
+/8 (OR
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--535
-\OT1/ppl/m/n/8 raw[]ma.fn with raw=TRUE),
+Underfull \hbox (badness 10000) in paragraph at lines 565--565
+\OT1/cmtt/m/n/8 raw[]ma.fn \OT1/ppl/m/n/8 with \OT1/cmtt/m/n/8 raw=TRUE\OT1/ppl
+/m/n/8 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--535
-[]\OT1/ppl/m/n/8 'train[]data.txt.gz' and
+Underfull \hbox (badness 10000) in paragraph at lines 565--565
+[]\OT1/ppl/m/it/8 train[]data.txt.gz \OT1/ppl/m/n/8 and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--535
-\OT1/ppl/m/n/8 'test[]data.txt.gz' (to-gether
+Underfull \hbox (badness 10000) in paragraph at lines 565--565
+\OT1/ppl/m/it/8 test[]data.txt.gz \OT1/ppl/m/n/8 (to-gether with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
+Underfull \hbox (badness 10000) in paragraph at lines 565--566
 []\OT1/ppl/m/n/8 This func-tion calls the un-der-ly-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--537
-[]\OT1/ppl/m/n/8 train.fn='train[]data.txt.gz',
+Overfull \hbox (6.00066pt too wide) in paragraph at lines 567--567
+[]\OT1/cmtt/m/n/8 train.fn=`train[]data.txt.gz'\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 2865) in paragraph at lines 537--538
-[]\OT1/ppl/m/n/8 tt.ready is a list of ob-jects of class
+Underfull \hbox (badness 1173) in paragraph at lines 567--568
+[]\OT1/cmtt/m/n/8 tt.ready \OT1/ppl/m/n/8 is a list of ob-jects of class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 537--538
-\OT1/ppl/m/n/8 TT.Ready.Gene that has em-bed-ded
+Underfull \hbox (badness 10000) in paragraph at lines 567--568
+\OT1/cmtt/m/n/8 TT.Ready.Gene \OT1/ppl/m/n/8 that has em-bed-ded
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--539
-[]\OT1/ppl/m/n/8 samples.fn, train.fn, test.fn,
+Overfull \hbox (5.36922pt too wide) in paragraph at lines 569--569
+[]\OT1/cmtt/m/n/8 prepare.txs.data()| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--539
-[]\OT1/ppl/m/n/8 'train[]txs[]data.txt.gz',
+Underfull \hbox (badness 10000) in paragraph at lines 569--569
+[]\OT1/cmtt/m/n/8 samples.fn\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 train.fn\OT1/ppl/m
+/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 539--539
-\OT1/ppl/m/n/8 'test[]txs[]data.txt.gz' (to-gether
+Underfull \hbox (badness 10000) in paragraph at lines 569--569
+[]\OT1/ppl/m/it/8 train[]txs[]data.txt.gz\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 540--541
-\OT1/ppl/m/n/8 'pre-pare[]txs[]data.py', which can be
+Underfull \hbox (badness 10000) in paragraph at lines 569--569
+\OT1/ppl/m/it/8 test[]txs[]data.txt.gz \OT1/ppl/m/n/8 (to-gether
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--542
-[]\OT1/ppl/m/n/8 train.fn='train[]txs[]data.txt.gz',
+Underfull \hbox (badness 10000) in paragraph at lines 570--571
+[]\OT1/ppl/m/n/8 This func-tion works like
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--544
-[]\OT1/ppl/m/n/8 mtry, ntree, fea-ture.select,
+Underfull \hbox (badness 2538) in paragraph at lines 570--571
+\OT1/cmtt/m/n/8 prepare.data() \OT1/ppl/m/n/8 by call-ing the und-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 544--545
+Overfull \hbox (21.81087pt too wide) in paragraph at lines 572--572
+[]\OT1/cmtt/m/n/8 train.fn='train[]txs[]data.txt.gz'\OT1/ppl/m/n/8 ,
+ []
+
+
+Overfull \hbox (11.31075pt too wide) in paragraph at lines 572--572
+\OT1/cmtt/m/n/8 test.fn='test[]txs[]data.txt.gz'| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--574
+[]\OT1/cmtt/m/n/8 mtry=2\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 ntree=1000\OT1/ppl/m/n
+/8 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--574
+\OT1/cmtt/m/n/8 feature.select=TRUE\OT1/ppl/m/n/8 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 574--575
 []\OT1/ppl/m/n/8 Constructor for ob-jects of class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--546
-[]\OT1/ppl/m/n/8 TT.Ready ob-ject, tt.params,
+Underfull \hbox (badness 10000) in paragraph at lines 576--576
+[]\OT1/cmtt/m/n/8 TT.Ready \OT1/ppl/m/n/8 ob-ject, \OT1/cmtt/m/n/8 tt.params\OT
+1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
 []\OT1/ppl/m/n/8 Performs pre-dic-tion on a sin-gle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
-\OT1/ppl/m/n/8 TT.Ready.Gene or TT.Ready.Txs ob-
+Underfull \hbox (badness 10000) in paragraph at lines 576--577
+\OT1/cmtt/m/n/8 TT.Ready.Gene \OT1/ppl/m/n/8 or \OT1/cmtt/m/n/8 TT.Ready.Txs
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
-[]\OT1/ppl/m/n/8 array2seq, ar-
+Underfull \hbox (badness 10000) in paragraph at lines 578--578
+[]\OT1/cmtt/m/n/8 array2seq()\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--549
-[]\OT1/ppl/m/n/8 tt.seq is a list of TT.Seq.Gene or
+Underfull \hbox (badness 10000) in paragraph at lines 578--578
+[]\OT1/cmtt/m/n/8 tt.ready\OT1/ppl/m/n/8 /\OT1/cmtt/m/n/8 tt.ready.txs\OT1/ppl/
+m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 552--552
-[]\OT1/ppl/m/n/8 tt.seq/tt.seq.txs,
+Underfull \hbox (badness 3281) in paragraph at lines 578--579
+[]\OT1/cmtt/m/n/8 tt.seq \OT1/ppl/m/n/8 is a list of \OT1/cmtt/m/n/8 TT.Seq.Gen
+e \OT1/ppl/m/n/8 or
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 552--553
-[]\OT1/ppl/m/n/8 tt.filtered is a list of ob-jects of class
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
+[]\OT1/ppl/m/n/8 The parallelised-list ver-sion of
  []
 
 
-Overfull \hbox (36.0498pt too wide) in paragraph at lines 531--569
+Underfull \hbox (badness 10000) in paragraph at lines 582--582
+[]\OT1/cmtt/m/n/8 tt.seq/tt.seq.txs\OT1/ppl/m/n/8 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 582--582
+\OT1/cmtt/m/n/8 tt.seq.oob/tt.seq.oob.txs
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--587
+[]\OT1/cmtt/m/n/8 tt.params \OT1/ppl/m/n/8 is an ob-ject of class
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--588
+[]\OT1/cmtt/m/n/8 tt.predicted \OT1/ppl/m/n/8 OR
+ []
+
+
+Overfull \hbox (1.11916pt too wide) in paragraph at lines 590--590
+[]\OT1/cmtt/m/n/8 get.predictions()| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--590
+[]\OT1/cmtt/m/n/8 tt.filtered \OT1/ppl/m/n/8 OR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--592
+[]\OT1/cmtt/m/n/8 tt.seq.oob \OT1/ppl/m/n/8 OR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 594--594
+[]\OT1/cmtt/m/n/8 tt.seq.oob \OT1/ppl/m/n/8 OR
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 596--596
+[]\OT1/cmtt/m/n/8 get.names()\OT1/ppl/m/n/8 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 596--596
+\OT1/cmtt/m/n/8 get.train()\OT1/ppl/m/n/8 ,
+ []
+
+
+Overfull \hbox (36.0498pt too wide) in paragraph at lines 561--599
  [][] 
  []
 
-[16] [17] (./cookbook.aux) ) 
+[17]
+Overfull \hbox (3.98233pt too wide) in paragraph at lines 619--619
+[]\OT1/cmtt/m/n/12 WITHOUT ANY WARRANTY; without even the implied warranty of M
+ERCHANTABILITY[] 
+ []
+
+[18] [19] (./cookbook.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8461 strings out of 495061
- 119942 string characters out of 1182621
- 210761 words of memory out of 3000000
- 11404 multiletter control sequences out of 15000+50000
- 41871 words of font info for 113 fonts, out of 3000000 for 9000
+ 8478 strings out of 495061
+ 120036 string characters out of 1182621
+ 214761 words of memory out of 3000000
+ 11414 multiletter control sequences out of 15000+50000
+ 43866 words of font info for 119 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 38i,10n,38p,834b,414s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.e
-nc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmssi17.pfb></usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb>
-</usr/share/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texm
-f-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/t
-ype1/urw/palatino/uplri8a.pfb>
-Output written on cookbook.pdf (17 pages, 188667 bytes).
+ 38i,13n,38p,870b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmtt8.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/up
+lb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/s
+hare/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texliv
+e/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on cookbook.pdf (19 pages, 237157 bytes).
 PDF statistics:
- 317 PDF objects out of 1000 (max. 8388607)
- 79 named destinations out of 1000 (max. 500000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
  225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
