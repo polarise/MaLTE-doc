@@ -75,6 +75,10 @@ This documents describes how to use the \textsf{R} \textsf{MaLTE} package. It be
 \item \texttt{multicore} \textsf{R} package
 \end{itemize}
 
+\section{Citing \textsf{MaLTE}}
+To be added...
+
+
 \section{Installation}
 \label{installation}
 \textsf{MaLTE} may be downloaded from \url{https://github.com/polarise/MaLTE-package}. There are two ways to install \textsf{MaLTE}: via GNU/Linux shell and \textsf{R} shell.
@@ -91,7 +95,7 @@ me@home ~$ R CMD INSTALL MaLTE_<release>.tar.gz
 \end{verbatim}
 \end{enumerate}
 
-Once installed, MaLTE may be loaded in the R shell as follows:
+Once installed, \textsf{MaLTE} may be loaded in the \textsf{R} shell as follows:
 \begin{verbatim}
 > library( MaLTE )
 \end{verbatim}

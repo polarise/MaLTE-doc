@@ -43,15 +43,15 @@ The final step in microarray data preparation is quantification of raw intensiti
 
 We set out to supplement the summarisation step with a supervised learning approach. In supervised learning, the user is required to provide a true estimate by which to build learning models but in gene expression experiments the true estimate is seldom known. However, it is possible to use high quality estimates instead and here we chose to use RNA-Seq expression estimates.
 
-The MaLTE framework consists of applying a learning algorithm between gold standard expression estimates and fluorescent probe intensities. We refer to is as a framework because the constituent components may be modified or entirely overhauled. It is not restricted to the learning algorithms used in the \textsf{R} MaLTE package (conditional random forest); any good learning algorithm may be used. It is also not restricted to one particular gold standard. Currently, we use RNA-Seq as the gold standard HTS quantification technique. Figure \textbf{NKK} below shows a schematic of the MaLTE framework. Only one gene is presented. However, learning occurs for each gene independently. MaLTE incorporates simple feature selection by picking the best 15 probes that correlate with the RNA-Seq expression.
+The \textsf{MaLTE} framework consists of applying a learning algorithm between gold standard expression estimates and fluorescent probe intensities. We refer to is as a framework because the constituent components may be modified or entirely overhauled. It is not restricted to the learning algorithms used in the \textsf{R} \textsf{MaLTE} package (conditional random forest); any good learning algorithm may be used. It is also not restricted to one particular gold standard. Currently, we use RNA-Seq as the gold standard HTS quantification technique. Figure \textbf{NKK} below shows a schematic of the \textsf{MaLTE} framework. Only one gene is presented. However, learning occurs for each gene independently. \textsf{MaLTE} incorporates simple feature selection by picking the best 15 probes that correlate with the RNA-Seq expression.
 
-MaLTE builds gene-specific models from a training and test dataset. The training dataset consists of microarray and RNA-Seq data while the test set consists of microarray data alone. The microarray fluorescence probe intensities are quantile-normalised and background corrected. We then train a model using the probe intensity values as predictors and the RNA-Seq values as the response. Finally, we predict RNA-Seq estimates for the test samples using only the probe intensities.
+\textsf{MaLTE} builds gene-specific models from a training and test dataset. The training dataset consists of microarray and RNA-Seq data while the test set consists of microarray data alone. The microarray fluorescence probe intensities are quantile-normalised and background corrected. We then train a model using the probe intensity values as predictors and the RNA-Seq values as the response. Finally, we predict RNA-Seq estimates for the test samples using only the probe intensities.
 
-This approach overcomes the two main setbacks of conventional algorithms. It transforms expression estimates onto an absolute scale thus dramatically improving the within-sample correlations. MaLTE also naturally extends to predicting expression of individual transcript isoforms by training on the multiple responses of individual transcript isoforms. Moreover, MaLTE leads to substantial improvements in cross-sample correlations, which increase statistical power for tasks such as differential expression analysis and eQTL\footnote{Expression quantitative trait loci} mapping. Finally, a tree-based learning introduces an easy way to filter out poorly-predicted genes through the use of out-of-bag estimates.
+This approach overcomes the two main setbacks of conventional algorithms. It transforms expression estimates onto an absolute scale thus dramatically improving the within-sample correlations. \textsf{MaLTE} also naturally extends to predicting expression of individual transcript isoforms by training on the multiple responses of individual transcript isoforms. Moreover, \textsf{MaLTE} leads to substantial improvements in cross-sample correlations, which increase statistical power for tasks such as differential expression analysis and eQTL\footnote{Expression quantitative trait loci} mapping. Finally, a tree-based learning introduces an easy way to filter out poorly-predicted genes through the use of out-of-bag estimates.
 
-MaLTE is particularly suited to large-scale studies involving hundreds to thousands of samples. A representative subset of samples would be subject to long-read, high-depth and wide-coverage RNA-Seq to ensure a high-quality gold standard transcriptome upon which learning is based. All samples are subjected to the same type of microarray assay. We strongly recommend that the same RNA extractions are used for both RNA-Seq and microarray assays to eliminate batch effects, which can substantially reduce prediction performance. Such an approach will save costs (cheapeuse of other people's TeXr than an all-RNA-Seq experiment) while boosting statistical power (many samples with better expression estimates compared to microarray alone).
+\textsf{MaLTE} is particularly suited to large-scale studies involving hundreds to thousands of samples. A representative subset of samples would be subject to long-read, high-depth and wide-coverage RNA-Seq to ensure a high-quality gold standard transcriptome upon which learning is based. All samples are subjected to the same type of microarray assay. We strongly recommend that the same RNA extractions are used for both RNA-Seq and microarray assays to eliminate batch effects, which can substantially reduce prediction performance. Such an approach will save costs (cheapeuse of other people's TeXr than an all-RNA-Seq experiment) while boosting statistical power (many samples with better expression estimates compared to microarray alone).
 
-This documents describes how to used the \textsf{R} MaLTE package. It begins with a description on how to get and install the package. It then outlines the two main ways in which the package may be used: \textit{gene expression prediction (GEP)} and \textit{transcript isoform expression prediction (TIEP)}. It concludes with a description on how to filter and collate expression predictions for downstream analyses. It also provides a tentative roadmap for future development as well as a detailed description on how the MaLTE package is built. We invite bug reports, comments and suggestions through the following address: \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com}.
+This documents describes how to use the \textsf{R} \textsf{MaLTE} package. It begins with a description on how to get and install the package. It then outlines the two main ways in which the package may be used: \textit{gene expression prediction (GEP)} and \textit{transcript isoform expression prediction (TIEP)}. It concludes with a description on how to filter and collate expression predictions for downstream analyses. It also provides a tentative roadmap for future development as well as a detailed description on how the \textsf{MaLTE} package is built. We invite bug reports, comments and suggestions through the following address: \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com}.
 
 \section{Conventions Used}
 \label{conventions}
@@ -75,9 +75,13 @@ This documents describes how to used the \textsf{R} MaLTE package. It begins wit
 \item \texttt{multicore} \textsf{R} package
 \end{itemize}
 
+\section{Citing \textsf{MaLTE}}
+To be added...
+
+
 \section{Installation}
 \label{installation}
-MaLTE may be downloaded from \url{https://github.com/polarise/MaLTE-package}. There are two ways to install MaLTE: via GNU/Linux shell and \textsf{R} shell.
+\textsf{MaLTE} may be downloaded from \url{https://github.com/polarise/MaLTE-package}. There are two ways to install \textsf{MaLTE}: via GNU/Linux shell and \textsf{R} shell.
 
 \begin{enumerate}
 \item Via GNU/Linux shell
@@ -91,7 +95,7 @@ me@home ~$ R CMD INSTALL MaLTE_<release>.tar.gz
 \end{verbatim}
 \end{enumerate}
 
-Once installed, MaLTE may be loaded in the R shell as follows:
+Once installed, \textsf{MaLTE} may be loaded in the \textsf{R} shell as follows:
 \begin{verbatim}
 > library( MaLTE )
 \end{verbatim}
@@ -118,7 +122,7 @@ or, quietly:
 \label{gep}
 \subsection{Quick Start Guide}
 \label{gep:quick}
-This section provides a quick introduction to using MaLTE. Detailed instructions incorporating descriptions of the various file and there respective formats is provided in Section \ref{gep:detailed}. We assume that the user is in the \textsf{R} shell, the MaLTE library is loaded and the following data files are available: \textit{samples.txt}, \textit{hts\_data.txt}, \textit{ma\_data.txt}, \textit{gene\_probesets.txt}.
+This section provides a quick introduction to using \textsf{MaLTE}. Detailed instructions incorporating descriptions of the various file and there respective formats is provided in Section \ref{gep:detailed}. We assume that the user is in the \textsf{R} shell, the \textsf{MaLTE} library is loaded and the following data files are available: \textit{samples.txt}, \textit{hts\_data.txt}, \textit{ma\_data.txt}, \textit{gene\_probesets.txt}.
 
 \noindent\\
 \textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
@@ -274,7 +278,7 @@ Structure & Two-columns separated by a single tab (tab-delimited) \\
 \begin{enumerate}
 \item \textbf{Sample names.} This file can be prepared using a text editor or preferably using a spreadsheet application such as Microsoft Excel or LibreOffice/OpenOffice Calc. The file must be saved as a tab-delimited text file or a comma-separated values (CSV) file with the field-delimiter set to TABS and the quote-character set to NONE. The file extension must be as described above.
 
-\item \textbf{HTS data.} This file may be constructed using customised scripts that collate the HTS expression estimates output from programmes such as \textsf{Cufflinks} or \textsf{DESeq}. The order of sample columns is unimportant. There are several online datasets\footnote{\url{http://bowtie-bio.sourceforge.net/recount/}} that are provided in this format making it easy to proceed with using MaLTE.
+\item \textbf{HTS data.} This file may be constructed using customised scripts that collate the HTS expression estimates output from programmes such as \textsf{Cufflinks} or \textsf{DESeq}. The order of sample columns is unimportant. There are several online datasets\footnote{\url{http://bowtie-bio.sourceforge.net/recount/}} that are provided in this format making it easy to proceed with using \textsf{MaLTE}.
 
 \item \textbf{Microarray data.} Raw microarray data is provided as CEL files. The contents of CEL files need to be extracted and additional pre-processing steps may be applied to the raw data. Two pre-processing steps we recommend are quantile-normalisation (QN) and background correction (BC). The Affymetrix Power Tools (APT) suite is recommended for this and other analytical steps though several \textsf{R} packages have been developed to supplement APT.  Here we describe how to extract fluorescence probe intensities and how to remove unnecessary columns.
 
@@ -290,7 +294,7 @@ me@home ~$ apt-cel-extract -o raw_ma_data.txt
   -a quant-norm,pm-gcbg *.CEL
 \end{verbatim}
 
-This provides `raw' data that can directly be used with MaLTE. To do so, the \texttt{raw} argument in \texttt{prepare.data()} must be set to \texttt{TRUE} (as it is \texttt{FALSE} by default). However, unnecessary columns can be excluded as shown below.
+This provides `raw' data that can directly be used with \textsf{MaLTE}. To do so, the \texttt{raw} argument in \texttt{prepare.data()} must be set to \texttt{TRUE} (as it is \texttt{FALSE} by default). However, unnecessary columns can be excluded as shown below.
 
 \item[(ii)] \textbf{Excluding unnecessary columns.} Unnecessary columns can be easily excluded using the bash utility \texttt{cut} like so:
 
@@ -484,9 +488,9 @@ Transcript isoform expression prediciton (TIEP) depends on having five input fil
 
 \item \textbf{GEP test data.} This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
 
-\item \textbf{Transcript HTS data file.} Several programs are available that perform transcript isoform expression quantification from HTS data. Popular examples include \textsf{Cufflinks}, \textsf{IsoEM} and \textsf{RSEM}. As suggested in HTS data description in \textit{GEP: Preparing Input Files}, custom scripts should be used to combine expression estimates. Sample names in the header must exactly correspond to those in the Sample names file. The order of samples is not important.
+\item \textbf{Transcript HTS data file.} Several programs are available that perform transcript isoform expression quantification from HTS data. Popular examples include \textsf{Cufflinks}, \textsf{IsoEM} and \textsf{RSEM}. As suggested in HTS data description in Section \ref{gep:prepare} \textit{GEP: Preparing Input Files}, custom scripts should be used to combine expression estimates. Sample names in the header must exactly correspond to those in the Sample names file. The order of samples is not important.
 
-\item \textbf{Gene-to-transcript map.} A man of gene to transcript identifiers is most easily obtained off BioMart [cite].
+\item \textbf{Gene-to-transcript map.} A man of gene to transcript identifiers is most easily obtained off \textsf{BioMart}.
 \end{enumerate}
 
 \section{Filtering and Collating Predictions}
@@ -499,17 +503,17 @@ Finally, extracted data may be written to a tab-delimited (or otherwise) text fi
 
 The training and prediction step produces data in an internal format that is not suitable for further bioinformatic analyses. The prediction estimates need to be filtered to exclude poor predictions then finally converted into a data-frame that can then be saved as a tab-delimited text file.
 
-Filtering takes advantage of the tree-based learning algorithm. Conditional random forests are used in the current implementation of MaLTE. A forest is an ensemble of trees, with each tree constructed by bootstrapping on the training data. This involves randomly selected a subset of the training samples and constructing a tree using a recursive partition approach. This is repeated for hundreds to thousands of trees. Each sample (observation) is only used to construct a subset of all the trees. We can then use the trees in which it is absent to predict its value. This also applies to all the other samples (observations).
+Filtering takes advantage of the tree-based learning algorithm. Conditional random forests are used in the current implementation of \textsf{MaLTE}. A forest is an ensemble of trees, with each tree constructed by bootstrapping on the training data. This involves randomly selected a subset of the training samples and constructing a tree using a recursive partition approach. This is repeated for hundreds to thousands of trees. Each sample (observation) is only used to construct a subset of all the trees. We can then use the trees in which it is absent to predict its value. This also applies to all the other samples (observations).
 
 The resulting predicted estimates are called the out-of-bag (OOB) estimates because they predict each observation using the subset of trees for which it was 'out of bag'. Our results suggest that the OOB estimates give a good indication of how reliably a particular gene will have its expression predicted. We measure this performance using the OOB Pearson correlation, which is the correlation between the training HTS and the OOB predictions. An OOB Pearson correlation threshold of zero ($r_{\mathrm{OOB}} > 0$) is currently set as a default filter threshold. This is referred to as OOB filtering.
 
 \section{Future Work}
 \label{future}
-We hope to make further improvements to MaLTE depending on whether it finds widespread use. The following list of features may be added at a future data:
+We hope to make further improvements to \textsf{MaLTE} depending on whether it finds widespread use. The following list of features may be added at a future data:
 \begin{enumerate}
-\item \textbf{Replace the underlying \textsf{Python} scripts with C/C++ programs.} We used \textsf{Python} because it was relatively simple to put together and it has mature data structures. \textsf{Python} scripts are slower than \textsf{C/C}\verb!++! programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts MaLTE to GNU/Linux and Unix-like systems.
+\item \textbf{Replace the underlying \textsf{Python} scripts with C/C++ programs.} We used \textsf{Python} because it was relatively simple to put together and it has mature data structures. \textsf{Python} scripts are slower than \textsf{C/C}\verb!++! programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts \textsf{MaLTE} to GNU/Linux and Unix-like systems.
 \item \textbf{Configure training and test data using a standardised structured file format.} Currently, training and test data is held in custom tab-delimited files. We would like to transition either to XML or HDF.
-\item \textbf{Expand the use of the sample names (\textit{samples.txt}) file.} Currently, the sample names file is underutilised. It should be possible to include additional columns that could be incorporated into the learning process. For example, a column on batch information could be passed to ComBat to minimise batch effects. Other variables such as tissue type could be important for training.
+\item \textbf{Expand the use of the sample names (\textit{samples.txt}) file.} Currently, the sample names file is underutilised. It is possible to include additional columns that could be incorporated into the learning process. For example, a column on batch information could be passed to \textsf{ComBat} to minimise batch effects. Other variables such as tissue type could be important for training.
 \item \textbf{Automatic parameter tuning.} We would like to incorporate a tuning utility that uses a random sample of the training data to optimise the training parameters.
 \end{enumerate}
 
@@ -533,7 +537,7 @@ Please send all bug reports and feature requests to \href{mailto:paul.korir@gmai
 \appendix
 \section{Classes}
 \label{classes}
-The R MaLTE package uses three main classes.
+The \textsf{R} \textsf{MaLTE} package uses three main classes.
 \begin{enumerate}
 \item \texttt{TT.Ready}. This class handles data \textit{ready} for training and test. It is an abstract base class from which two other classes are derived:
 \begin{enumerate}
@@ -547,10 +551,10 @@ The R MaLTE package uses three main classes.
 \item[(ii)] \texttt{TT.Seq.Txs} for transcript isoform predictions similar to \texttt{TT.Seq.Gene}.
 \end{enumerate}
 
-\item \texttt{TT.Params}. This class handles training and prediction parameters passed to the train.and.predict (alias run) methods of TT.Ready objects. It has the following slots: \texttt{mtry}, \texttt{ntree}, \texttt{feature.select}, \texttt{min.probes}, \texttt{cor.thresh}, and \texttt{OOB}.
+\item \texttt{TT.Params}. This class handles training and prediction parameters passed to the train.and.predict (alias run) methods of \texttt{TT.Ready} objects. It has the following slots: \texttt{mtry}, \texttt{ntree}, \texttt{feature.select}, \texttt{min.probes}, \texttt{cor.thresh}, and \texttt{OOB}.
 \end{enumerate}
 
-More information on these classes can be found in the \textsf{MaLTE} manual that accompanies package.
+More information on these classes can be found in the \textsf{MaLTE} manual that accompanies the package.
 
 \section{Function and Methods Table}
 \label{functions}
