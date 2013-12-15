@@ -511,7 +511,8 @@ Another to filter is by the training RPKM/FPKM values being above a certain valu
 \begin{verbatim}
 # tt.seq     - predictions from training data 
 # tt.seq.oob - OOB predictions (contains training RNA-Seq)
-# only include genes with at least 10 samples with RNA-Seq expression of at least 1
+# only include genes with at least 10 samples having
+#  RNA-Seq expression of at least 1
 > filt.indexes = .filter.trues( tt.seq.oob, filter.fpkm=1, filter.count=10 )
 > tt.filt = tt.seq[ filt.indexes ]
 
