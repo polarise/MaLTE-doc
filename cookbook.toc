@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {8}Filtering and Collating Predictions}{13}{section.8}
 \contentsline {section}{\numberline {9}Future Work}{14}{section.9}
 \contentsline {section}{\numberline {10}Bug Reports}{14}{section.10}
-\contentsline {section}{\numberline {11}Citing \textsf {MaLTE}}{14}{section.11}
+\contentsline {section}{\numberline {11}Citing \textsf {MaLTE}}{15}{section.11}
 \contentsline {section}{\numberline {A}Classes}{16}{appendix.A}
 \contentsline {section}{\numberline {B}Function and Methods Table}{17}{appendix.B}
 \contentsline {section}{\numberline {C}License}{18}{appendix.C}

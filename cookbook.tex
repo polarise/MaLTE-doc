@@ -126,28 +126,28 @@ This section provides a quick introduction to using \textsf{MaLTE}. Detailed ins
 \noindent\\
 \textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
 \begin{verbatim}
-> samples.fn <- paste( system.file( package="MaLTE" ), "data", 
+> samples.fn = paste( system.file( package="MaLTE" ), "data", 
   "samples.txt.gz", sep="/" )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step II:} Provide the location of the file containing the high-throughput sequencing (RNA-Seq) data
 \begin{verbatim}
-> hts.fn <- paste( system.file( package="MaLTE" ), "data", 
+> hts.fn = paste( system.file( package="MaLTE" ), "data", 
   "hts_data.txt.gz", sep="/" )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step III:} Provide the location to the file containing quantile-normalised and background corrected fluorescence probe intensities
 \begin{verbatim}
-> ma.fn <- paste( system.file( package="MaLTE" ), "data", 
+> ma.fn = paste( system.file( package="MaLTE" ), "data", 
   "ma_data.txt.gz", sep="/" )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step IV:} Provide the location of a map showing the probe sets associated with each gene
 \begin{verbatim}
-> g2p.fn <- paste( system.file( package="MaLTE" ), "data", 
+> g2p.fn = paste( system.file( package="MaLTE" ), "data", 
   "gene_probesets.txt.gz", sep="/" )
 \end{verbatim}
 
@@ -161,7 +161,7 @@ This section provides a quick introduction to using \textsf{MaLTE}. Detailed ins
 \noindent\\
 \textbf{Step VI:} Read the data in preparation for the training and test phase
 \begin{verbatim}
-> tt.ready <- read.data( train.fn="train_data.txt.gz", 
+> tt.ready = read.data( train.fn="train_data.txt.gz", 
   test.fn="test_data.txt.gz" )
 \end{verbatim}
 
@@ -169,44 +169,44 @@ This section provides a quick introduction to using \textsf{MaLTE}. Detailed ins
 \textbf{Step VII:} Initialise training parameters
 \begin{verbatim}
 # conditional random forest
-> tt.params <- TT.Params()
+> tt.params = TT.Params()
 
 # quantile regression random forest
-> tt.params <- TT.Params( quantreg=TRUE )
+> tt.params = TT.Params( quantreg=TRUE )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step VIII:} Train and predict
 \begin{verbatim}
-> tt.seq <- array2seq( tt.ready, tt.params )
+> tt.seq = array2seq( tt.ready, tt.params )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step IX:} Perform out-of-bag (OOB) predictions
 \begin{verbatim}
-> tt.seq.oob <- array2seq.oob( tt.ready, tt.params )
+> tt.seq.oob = array2seq.oob( tt.ready, tt.params )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step X:} Filter based on OOB correlations
 \begin{verbatim}
-> tt.filtered <- oob.filter( tt.seq, tt.seq.oob, thresh=0 )
+> tt.filtered = oob.filter( tt.seq, tt.seq.oob, thresh=0 )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step XI:} Get the names of test samples
 \begin{verbatim}
-> test.names <- get.names( samples.fn, test=TRUE )
+> test.names = get.names( samples.fn, test=TRUE )
 \end{verbatim}
 or 
 \begin{verbatim}
-> test.names <- get.test( samples.fn )   # get test sample names
+> test.names = get.test( samples.fn )   # get test sample names
 \end{verbatim}
 
 \noindent\\
 \textbf{Step XII:} Aggregate predictions and write output to a text file for downstream analyses.
 \begin{verbatim}
-> df <- get.predictions( tt.filtered, test.names )
+> df = get.predictions( tt.filtered, test.names )
 > write.table( df, file="filt_preds.txt", col.names=TRUE, row.names=FALSE, 
   quote=FALSE, sep="\t" )
 \end{verbatim}
@@ -335,21 +335,21 @@ The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produce
 \noindent\\
 \textbf{Step I:} Provide the location of the file containing a map between sample names on both platforms (RNA-Seq and microarray)
 \begin{verbatim}
-> samples.fn <- paste( system.file( package="MaLTE" ), "data", 
+> samples.fn = paste( system.file( package="MaLTE" ), "data", 
   "samples.txt.gz", sep="/" )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step II:} Provide the location of the file containing the high-throughput sequencing (RNA-Seq) transcript isoform expression estimates
 \begin{verbatim}
-> hts.txs.fn <- paste( system.file( package="MaLTE" ), "data", 
+> hts.txs.fn = paste( system.file( package="MaLTE" ), "data", 
   "hts_txs_data.txt.gz", sep="/" )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step III:} Provide the location of map of gene-to-transcript identifiers
 \begin{verbatim}
-> g2tx.fn <- paste( system.file( package="MaLTE" ), "data", 
+> g2tx.fn = paste( system.file( package="MaLTE" ), "data", 
   "gene_transcripts.txt.gz", sep="/" )
 \end{verbatim}
 
@@ -363,38 +363,38 @@ The files \textit{train\_data.txt.gz} and \textit{test\_data.txt.gz} are produce
 \noindent\\
 \textbf{Step V:} Read in the data in preparation for training and preparation
 \begin{verbatim}
-> tt.ready.txs <- read.txs.data( train.fn="train_txs_data.txt.gz", 
+> tt.ready.txs = read.txs.data( train.fn="train_txs_data.txt.gz", 
   test.fn="test_txs_data.txt.gz" )
 \end{verbatim}
 \textbf{Step VI:} Train and predict
 \begin{verbatim}
-> tt.seq.txs <- array2seq( tt.ready.txs, tt.params )
+> tt.seq.txs = array2seq( tt.ready.txs, tt.params )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step VII:} Train and predict for OOB estimates
 \begin{verbatim}
-> tt.seq.oob.txs <- array2seq.oob( tt.ready.txs, tt.params )
+> tt.seq.oob.txs = array2seq.oob( tt.ready.txs, tt.params )
 \end{verbatim}
 \textbf{Step VIII:} Filter based on OOB correlations
 \begin{verbatim}
-> tt.filtered.txs <- oob.filter( tt.seq.txs, tt.seq.oob.txs, thresh=0 )
+> tt.filtered.txs = oob.filter( tt.seq.txs, tt.seq.oob.txs, thresh=0 )
 \end{verbatim}
 
 \noindent\\
 \textbf{Step IX:} Get test sample names
 \begin{verbatim}
-> test.names <- get.names( samples.fn, test=TRUE )
+> test.names = get.names( samples.fn, test=TRUE )
 \end{verbatim}
 or 
 \begin{verbatim}
-> test.names <- get.test( samples.fn )   # get test sample names
+> test.names = get.test( samples.fn )   # get test sample names
 \end{verbatim}
 
 \noindent\\
 \textbf{Step X:} Collate predicted transcript isoform predictions and write them to a text file for downstream analyses
 \begin{verbatim}
-> df.txs <- get.predictions( tt.filtered.txs, test.names )
+> df.txs = get.predictions( tt.filtered.txs, test.names )
 \end{verbatim}
 
 \subsection{Detailed Instructions}
@@ -505,6 +505,21 @@ The training and prediction step produces data in an internal format that is not
 Filtering takes advantage of the tree-based learning algorithm. Conditional random forests are used in the current implementation of \textsf{MaLTE}. A forest is an ensemble of trees, with each tree constructed by bootstrapping on the training data. This involves randomly selected a subset of the training samples and constructing a tree using a recursive partition approach. This is repeated for hundreds to thousands of trees. Each sample (observation) is only used to construct a subset of all the trees. We can then use the trees in which it is absent to predict its value. This also applies to all the other samples (observations).
 
 The resulting predicted estimates are called the out-of-bag (OOB) estimates because they predict each observation using the subset of trees for which it was 'out of bag'. Our results suggest that the OOB estimates give a good indication of how reliably a particular gene will have its expression predicted. We measure this performance using the OOB Pearson correlation, which is the correlation between the training HTS and the OOB predictions. An OOB Pearson correlation threshold of zero ($r_{\mathrm{OOB}} > 0$) is currently set as a default filter threshold. This is referred to as OOB filtering.
+
+Another to filter is by the training RPKM/FPKM values being above a certain value in a set number of samples.
+
+\begin{verbatim}
+# tt.seq     - predictions from training data 
+# tt.seq.oob - OOB predictions (contains training RNA-Seq)
+# only include genes with at least 10 samples having
+#  RNA-Seq expression of at least 1
+> filt.indexes = .filter.trues( tt.seq.oob, filter.fpkm=1, filter.count=10 )
+> tt.filt = tt.seq[ filt.indexes ]
+
+# extract a data frame of filtered predictions
+> test.names = get.test( samples.fn ) # get names of test samples
+> df.malte = get.predictions( tt.filt, test.names )
+\end{verbatim}
 
 \section{Future Work}
 \label{future}
