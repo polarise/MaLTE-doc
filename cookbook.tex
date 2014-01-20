@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{float}
+\usepackage{multirow}
 \lstset{breaklines=true}
 \lstset{basicstyle=\ttfamily}
 \lstset{framesep=10pt}
@@ -51,15 +52,15 @@ The \textsf{MaLTE} framework supplements conventional algorithms with a supervis
 \label{fig:schematic}
 \end{figure}
 
-This approach overcomes the two main setbacks of conventional algorithms. It transforms expression estimates onto an absolute scale thus dramatically improving the within-sample correlations and naturally extends to predicting expression of individual transcript isoforms by training on the multiple responses of individual transcript isoforms. Moreover, \textsf{MaLTE} leads to substantial improvements in cross-sample correlations, which increases statistical power for biological analyses. Finally, a tree-based learning introduces an easy way to filter out poorly-predicted genes through the use of out-of-bag estimates.
+This approach overcomes the two main setbacks of conventional algorithms. It transforms expression estimates onto an absolute scale thus improving the within-sample correlations and naturally extends to predicting expression of individual transcript isoforms by training on the multiple responses of individual transcript isoforms. Moreover, \textsf{MaLTE} leads to substantial improvements in cross-sample correlations, which increases statistical power for biological analyses. Finally, a tree-based learning introduces an easy way to filter out poorly-predicted genes through the use of out-of-bag estimates.
 
-This documents describes how to use the \textsf{R} \textsf{MaLTE} package. It begins with a description on how to get and install the package. It then outlines the two main ways in which the package may be used: \textit{gene expression prediction (GEP)} and \textit{transcript isoform expression prediction (TIEP)}. It concludes with a description on how to filter and collate expression predictions for downstream analyses. It also provides a tentative roadmap for future development as well as a detailed description on how the \textsf{MaLTE} package is built. Bug reports, comments and suggestions are welcome through \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com}.
+This documents describes how to use the \textsf{R} \textsf{MaLTE} package. It begins with a description on how to get and install the package. It then outlines the two main ways in which the package may be used: \textit{gene expression prediction (GEP)} and \textit{transcript isoform expression prediction (TIEP)}. It concludes with a description on how to filter and collate expression predictions for downstream analyses. It also provides a tentative road map for future development as well as a detailed description on how the \textsf{MaLTE} package is built. Bug reports, comments and suggestions are welcome through \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com}.
 
 \section{Conventions Used}
 \label{conventions}
 \begin{itemize}
 \item Array data used here corresponds to that from \textit{Affymetrix GeneChip$^{\textregistered}$ Human Exon 1.0 ST} arrays. At present only Affymetrix GeneChip$^{\textregistered}$ Human Exon and Human Gene arrays have been tested using \textsf{MaLTE}.
-\item All gene and transcript identifiers are from EnsEMBL (\url{http://www.ensembl.org}).
+\item All gene and transcript identifiers are from Ensembl (\url{http://www.ensembl.org}).
 \item All filenames are written in italics (\textit{filename.txt}), variables in monospace (\texttt{my.var}), and functions in monospace terminated with parentheses (\texttt{my.function()}). Classes are in monospace beginning with a capital letter (\texttt{My.Class}) while corresponding constructors additionally terminate with parentheses (\texttt{My.Class()}). Names of software packages are in sans (\textsf{R}, \textsf{MaLTE}, \textsf{Cufflinks})
 \item \textit{High-throughput sequencing (HTS)} refers to \textit{RNA-Seq}.
 \item A \textit{map} is a tab-delimited text file with two columns with each column consisting of identifiers/names.
@@ -70,10 +71,11 @@ This documents describes how to use the \textsf{R} \textsf{MaLTE} package. It be
 \label{system}
 \begin{itemize}
 \item \textsf{R} (\texttt{2.14.0} or greater) installed on GNU/Linux: \textsf{MaLTE} has been tested on Scientific Linux version 5
-\item \textsf{Python} 2.7 or later
+\item \textsf{Python} 2.7
 \item \texttt{party} \textsf{R} package
 \item \texttt{multicore} \textsf{R} package
 \item \texttt{quantrefForest} \textsf{R} package
+\item \texttt{limma} \textsf{R} package
 \end{itemize}
 
 \section{Installation}
@@ -485,11 +487,11 @@ Transcript isoform expression prediciton (TIEP) depends on having five input fil
 \subsection{Preparing Input Files}
 \label{tiep:prepare}
 \begin{enumerate}
-\item \textbf{Sample names.} Please see Section GEP: Preparing Input Files.
+\item \textbf{Sample names.} Please see Section~\ref{gep} \textit{GEP: Preparing Input Files}.
 
-\item \textbf{GEP training data.} This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
+\item \textbf{GEP training data.} This file is automatically generated after running \texttt{prepare.data()} Please see Section~\ref{gep} Steps I-V of \textit{GEP: Quick Start Guide}.
 
-\item \textbf{GEP test data.} This file is automatically generated after running 'prepare.data()' Please see Section Steps I-V of GEP: Quick Start Guide.
+\item \textbf{GEP test data.} This file is automatically generated after running \texttt{prepare.data()} Please see Section~\ref{gep} Steps I-V of \textit{GEP: Quick Start Guide}.
 
 \item \textbf{Transcript HTS data file.} Several programs are available that perform transcript isoform expression quantification from HTS data. Popular examples include \textsf{Cufflinks}, \textsf{IsoEM} and \textsf{RSEM}. As suggested in HTS data description in Section \ref{gep:prepare} \textit{GEP: Preparing Input Files}, custom scripts should be used to combine expression estimates. Sample names in the header must exactly correspond to those in the Sample names file. The order of samples is not important.
 
@@ -523,9 +525,9 @@ Another to filter is by the training RPKM/FPKM values being above a certain valu
 
 \section{Future Work}
 \label{future}
-The following list of features may be added at a future data:
+The following list of features may be added at a future date:
 \begin{enumerate}
-\item \textbf{Replace the underlying \textsf{Python} scripts with C/C++ programs.} We used \textsf{Python} because it was relatively simple to put together and it has mature data structures. \textsf{Python} scripts are slower than \textsf{C/C}\verb!++! programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts \textsf{MaLTE} to GNU/Linux and Unix-like systems.
+\item \textbf{Replace the underlying \textsf{Python} scripts with C/C++ programs.} We used \textsf{Python} because it was relatively simple to put together and it has mature data structures. \textsf{Python} scripts are slower than \textsf{C/C}\verb!++! programs but we have applied multiprocessing to shorten the data preparation step. However, this arrangement restricts \textsf{MaLTE} to GNU/Linux and UNIX-like systems.
 \item \textbf{Configure training and test data using a standardised structured file format.} Currently, training and test data is held in custom tab-delimited files. We would like to transition either to XML or HDF.
 \item \textbf{Expand the use of the sample names (\textit{samples.txt}) file.} Currently, the sample names file is underutilised. It is possible to include additional columns that could be incorporated into the learning process. For example, a column on batch information could be passed to \textsf{ComBat} to minimise batch effects. Other variables such as tissue type could be important for training.
 \item \textbf{Automatic parameter tuning.} We would like to incorporate a tuning utility that uses a random sample of the training data to optimise the training parameters.
@@ -536,7 +538,7 @@ The following list of features may be added at a future data:
 Please send all bug reports and feature requests to \href{mailto:paul.korir@gmail.com}{paul.korir@gmail.com} with the subject `MaLTE Bugs' of `MaLTE Features', respectively. Alternatively, you may visit \url{https://github.com/polarise/MaLTE/issues} and click the `Issues' button to file a report.
 
 \section{Citing \textsf{MaLTE}}
-TBA
+\textsf{MaLTE} has been submitted for peer-review. This section will be updated shortly.
 
 \begin{thebibliography}{50}
 
@@ -547,7 +549,6 @@ TBA
 \bibitem{malone2011microarrays} Malone, John H., and Brian Oliver. "Microarrays, deep sequencing and the true measure of the transcriptome." BMC biology 9.1 (2011): 34.
 
 \end{thebibliography}
-
 
 \pagebreak
 \appendix
@@ -621,23 +622,372 @@ This function works like \texttt{prepare.data()} by calling the undlying \textsf
 % \end{landscape}
 
 \pagebreak
-\section{License}
-\label{license}
+\section{Use Case: MaLTE trained with GTEx data applied on exon array}
+
+Using MaLTE with the GTEx training dataset consists of three main steps illustrated in Figure \ref{fig:usecase}.
+
+\begin{itemize}
+\item Obtaining the package and training data
+\item Preparing the data for training-and-testing
+\item Predicting, filtering and collating expression estimates
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[height=21cm]{schematic1.pdf}
+\caption{\textbf{Schematic representing a \textsf{MaLTE} use-case.} The four text (dark green) files are the main input to the \textsf{MaLTE} package. These files are obtained by processing the training data.}
+\label{fig:usecase}
+\end{figure}
+
+In the first step, the user starts by downloading a set of auxiliary data and scripts before installing the \textsf{MaLTE} \textsf{R} package. The training (and test) data may then be downloaded after which several preprocessing steps may be carried out depending on the type of array involved. For example, we will need to transform the exon array to a gene array. The transformed array data is then quantile normalized to reduce batch effects.
+
+The second and third steps are relatively straightforward and employ only \textsf{MaLTE} functions.
+
+\subsection{Obtaining auxiliary data and scripts}
+
+The use-case presented here requires several auxiliary data and scripts to convert the exon array to a gene array. These are all contained in the \textsf{MaLTE-aux} Github repository which may be directly downloaded from \url{https://github.com/polarise/MaLTE-aux}. Click the `Download' button  to get the whole directory as a zip file.
+
 \begin{verbatim}
-Copyright (C) 2013  Paul K. Korir 
-
-This program is free software: you can redistribute it and/or modify it
-under the terms of the GNU General Public License as published by the 
-Free Software Foundation, either version 3 of the License, or (at your
-option) any later version.
-
-This program is distributed in the hope that it will be useful, but 
-WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License 
-for more details.
-
-You should have received a copy of the GNU General Public License along 
-with this program.  If not, see <http://www.gnu.org/licenses/>.
+unzip MaLTE-aux-master.zip
+cd MaLTE-aux
 \end{verbatim}
+
+Alternatively, it is much faster to use \textsf{git} as follows: 
+
+\begin{verbatim}
+git clone git@github.com:polarise/MaLTE-aux.git
+cd MaLTE-aux
+\end{verbatim}
+
+This directory contains pre-compiled resource files described in Table~\ref{tab:malte_aux}. \textbf{We strongly recommend that all analysis be carried out in this directory.}
+
+\begin{table}
+\centering
+\begin{tabular}{|l|p{6cm}|}
+\hline
+\textbf{File} & \textbf{Purpose} \\
+\hline
+\textit{create\_samples\_template.py} & \multirow{2}{*}{\parbox{6cm}{These script and input data files are used to generate \textit{samples.txt}.}} \\
+\textit{training\_samples.txt} & \\
+\hline
+\textit{transform\_microarrays.py} & \multirow{6}{*}{\parbox{6cm}{The \textsf{Python} script is used to transform the exon array to a gene array. Some probes are omitted in the process. The \texttt{.help} file gives explicit use of the data files below.}} \\
+\textit{transform\_microarrays.help} & \\
+ & \\
+ & \\
+ & \\
+ & \\
+\hline
+
+\textit{HuEx-1\_0-st-v2.r2.dt1.hg18.full.mps.gz} & \multirow{5}{*}{\parbox{6cm}{Data files required by \textit{transform\_microarrays.py}}} \\
+\textit{HuEx-1\_0-st-v2.r2.pgf.txt.gz} & \\
+\textit{HuExVsHuGene\_BestMatch.txt.gz} & \\
+\textit{HuGene-1\_1-st-v1.r4.mps.gz} & \\
+\textit{HuGene-1\_1-st-v1.r4.pgf.txt.gz} & \\
+\hline
+\textit{gene\_probesets\_HuGene\_Ens72.txt.gz} & \multirow{3}{*}{\parbox{6cm}{Input data files required to run the \textsf{MaLTE} function \texttt{prepare.data()}}} \\ \textit{transcript\_probesets\_HuGene\_Ens72.txt.gz} & \\
+ & \\
+\hline
+\end{tabular}
+\caption{Contents of MaLTE-aux and the functions they provide}
+\label{tab:malte_aux}
+\end{table}
+
+The script \textit{create\_samples\_template.py} compiles the resource file \textit{samples.txt} by choosing a random subset of samples (the user specifies the number) to be used for training specified in \textit{training\_samples.txt}. More information on how it works can be obtained by running 
+
+\begin{verbatim}
+./create_samples_template.py --help
+\end{verbatim}
+
+The script \textit{transform\_microarrays.py} converts one array to another using several resource files provided in \textsf{MaLTE-aux}. A detailed specification of how to use this script is available in the file \textit{transform\_microarrays.help}.
+
+\subsection{Working directory structure}
+As all analysis will be carried out in \textsf{MaLTE-aux} directory, we need to create two directories for the training and test array CEL files. 
+
+\begin{verbatim}
+mkdir GTEx_CEL
+mkdir RP_CEL
+\end{verbatim}
+
+\subsection{Obtaining the MaLTE package}
+
+\textsf{MaLTE} may be downloaded as a pre-built or source package. Pre-built versions can be found at \url{https://github.com/polarise/MaLTE-packages}. The latest version should be downloaded (files are not sorted by version but version numbers are increasing), ensuring that all prerequisites (see Section~\ref{}) are installed before installing \textsf{MaLTE}.
+
+\begin{verbatim}
+R CMD INSTALL MaLTE_<version>.tar.gz
+\end{verbatim} 
+
+The source package requires an installation of \textsf{git} and is obtained as followed:
+\begin{verbatim}
+git clone git@github.com:polarise/MaLTE.git
+\end{verbatim} 
+
+then built with
+\begin{verbatim}
+R CMD build MaLTE
+\end{verbatim}
+
+and installed using \texttt{R CMD INSTALL} as shown above. 
+
+\subsubsection{Creating the file \textit{samples.txt}}
+
+The \textit{samples.txt} file is created by running
+
+\begin{verbatim}
+./create_samples_template.py
+\end{verbatim} 
+
+The names of the test samples should be appended at the bottom of this file using a text editor. For example, to add a test sample called \textit{Test01.CEL} add the following line to \textit{samples.txt}:
+
+\begin{verbatim}
+*NA<tab>Test01.CEL
+\end{verbatim}
+
+The asterisk (\texttt{`*'}) marks this sample as a test sample and \texttt{`NA'} indicates that RNA-Seq data is not available. Repeat this for as many samples as are present in the test data.
+
+\subsubsection{Obtaining the training data}
+
+\textbf{\textit{GTEx RNA-Seq data.}} Gene expression levels estimated from RNA-Seq data may be downloaded from \url{http://www.broadinstitute.org/gtex}. The downloaded data needs to be processed to arrive at the training state by excluding extraneous information and converting gene annotation to Ensembl (from GENCODE) then quantile-normalizing only those genes with probe sets. Pre-processed data may be downloaded from \url{https://drive.google.com/file/d/0BxLgaMV5aZahVDNjM29WeGh2NHM/edit?usp=sharing}.
+
+\noindent\\
+\textbf{\textit{GTEx microarray data.}} CEL files for the GTEx microarray data are available as a single zipped archive which may be downloaded from GEO archive GSE45878 into the directory \texttt{GTEx\_CEL}. Background-corrected probes should be extracted as follows using the Affymetrix Power Tools function \texttt{apt-cel-extract}, which depends on the Affymetrix GeneChip$^{\text{\textregistered}}$ Human Gene 1.1 ST Array library files available at \url{http://www.affymetrix.com/estore/catalog/prod350003/AFFY/Human-Gene-ST-Array-Strips#1_3}. Select the `Technical Documentation' tab to get a link to the library files.
+
+\begin{verbatim}
+apt-cel-extract -o GTEx_probe_intensities.txt \
+-c /path/to/HuGene-1_1-st-v1.r4.clf \
+-p /path/to/HuGene-1_1-st-v1.r4.pgf \
+-b /path/to/HuGene-1_1-st-v1.r4.bgp \
+-a pm-gcbg GTEx_CEL/*.CEL
+\end{verbatim}
+
+It may be necessary to extract background probes file using \texttt{apt-dump-pgf}.
+
+\begin{verbatim}
+apt-dump-pgf \
+-p /path/to/HuGene-1_1-st-v1.r4.pgf \
+-c /path/to/HuGene-1_1-st-v1.r4.clf \
+--probeset-type antigenomic \
+-o HuGene-1_1-st-v1.r4.bgp
+\end{verbatim}
+
+\noindent\\
+\textbf{\textit{Exon microarray data.}} We outline this procedure using a previously uploaded dataset available under GEO accession GSE43134 into the directory \texttt{RP\_CEL}. The Affymetrix GeneChip$^{\text{\textregistered}}$ Human Exon 1.0 ST Array library files are available from \url{http://www.affymetrix.com/estore/catalog/131452/AFFY/Human-Exon-ST-Array}. Similarly, background-corrected probe fluorescence intensities should be extracted as follows:
+
+\begin{verbatim}
+apt-cel-extract \
+-o RP_probe_intensities.txt \
+-c /path/to/HuEx-1_0-st-v2.r2.clf \
+-p /path/to/HuEx-1_0-st-v2.r2.pgf \
+-b /path/to/HuEx-1_0-st-v2.r2.antigenomic.bgp \
+-a pm-gcbg RP_CEL/*.CEL
+\end{verbatim}
+
+\subsection{Transforming exon array probes to gene array probes}
+
+We now run \textit{transform\_microarrays.py} using the following template
+
+\begin{verbatim}
+./transform_microarrays.py \
+-e RP_probe_intensities.txt \
+-g GTEx_probe_intensities.txt \
+-c HuExVsHuGene_BestMatch.txt.gz \
+-i HuGene-1_1-st-v1.r4.pgf.txt.gz \
+-f HuEx-1_0-st-v2.r2.pgf.txt.gz \
+-p HuEx-1_0-st-v2.r2.dt1.hg18.full.mps.gz \
+-q HuGene-1_1-st-v1.r4.mps.gz \
+--huex-out BestMatch_HuEx_probe_intensities.txt \
+--huge-out BestMatch_HuGe_probe_intensities.txt
+\end{verbatim}
+
+Once the modified probe intensity files have been created they are quantile-normalized
+together with the training data as follows:
+
+\begin{verbatim}
+> library( limma )
+
+> # BESTMATCH DATA
+> huex.best <- read.table( "BestMatch_HuEx_probe_intensities.txt.gz", 
+  header=TRUE,  stringsAsFactors=FALSE,  check.names=FALSE)
+
+> huge.best <- read.table( "BestMatch_HuGe_probe_intensities.txt.gz", 
+  header=TRUE,  stringsAsFactors=FALSE,  check.names=FALSE)
+
+> # all raw data
+> data <- cbind( huge.best[,8:ncol( huge.best )], 
+  huex.best[,8:ncol( huex.best )] )
+
+> # quantile normalisation only
+> qnorm.data <- normalizeQuantiles( data, ties=FALSE )
+> # save the quantile-normalised data for later 
+> # (extracting principal components)
+> save( qnorm.data, file=”qnorm.data.Rdata” )
+
+> # re-insert probe metadata
+> hugeex.qnorm.data <- cbind( huge.best[,1:7], qnorm.data )
+
+> # save to file
+> write.table( hugeex.qnorm.data, 
+  file="BestMatch_GTEx_RP_probe_intensities_QN.txt", col.names=TRUE, 
+  row.names=FALSE,  quote=FALSE,  sep="\t" )
+\end{verbatim}
+
+All training data needed is now available to use \textsf{MaLTE}.
+
+\subsection{Preparing the data for training-and-testing}
+
+We can now use \textsf{MaLTE} to prepare the data for training and testing. First, we load the package after launching \textsf{R}.
+
+\begin{verbatim}
+> library( MaLTE )
+\end{verbatim}
+
+We use the \texttt{prepare.data()} function which takes as arguments the \textit{samples.txt,\\ GTEx\_subset\_gene\_rpkm\_QN.txt, BestMatch\_GTEx\_RP\_probe\_intensities\_QN.txt.gz}, and\\ \textit{gene\_probesets\_HuGene\_Ens72.txt.gz} (available in \textsf{MaLTE-aux} directory).
+
+\begin{verbatim}
+> prepare.data( samples.fn=’samples.txt’, 
+  hts.fn=’GTEx_subset_gene_rpkm_QN.txt.gz’,
+  ma.fn=’BestMatch_GTEx_RP_probe_intensities_QN.txt’,
+  g2p.fn=’gene_probesets_HuGene_Ens72.txt.gz’, raw=TRUE )
+\end{verbatim}
+
+We then read in the training and test data.
+
+\begin{verbatim}
+> tt.ready = read.data( train.fn=’train_data.tar.gz’, 
+  test.fn=’test_data.tar.gz’ )
+\end{verbatim}
+
+\subsection{Prediction}
+
+Prediction can either be on the test data training data (out-of-bag, OOB). We outline OOB shortly. First, we need to define training-and-test parameters (additional parameters are specified in Section~\ref{}).
+	
+\begin{verbatim}
+> tt.params = TT.Params()	# default parameters
+\end{verbatim} 
+
+This sets the following values:
+
+\begin{verbatim}
+> tt.params
+mtry             = 2 
+ntree            = 1000 
+feature.select   = TRUE 
+min.probes       = 15 
+cor.thresh       = 0 
+OOB              = FALSE 
+QuantReg         = FALSE 
+Tune (OOB cor.P) = NA
+\end{verbatim}
+
+Predictions are performed using the \texttt{array2seq()} function.
+
+\begin{verbatim}
+> tt.seq = array2seq( tt.ready, tt.params )
+\end{verbatim}
+
+OOB predictions are performed using the \texttt{array2seq.oob()} function.
+
+\begin{verbatim}
+> tt.seq.oob = array2seq.oob( tt.ready, tt.params )
+\end{verbatim} 
+
+\subsection{Filtering by OOB}
+
+OOB filtering is performed using the \texttt{oob.filter()} function, which takes a \texttt{tt.seq} pair (\texttt{tt.seq} and \texttt{tt.seq.oob}) and a filtering threshold together with the correlation to use for filtering (Pearson (default) or Spearman),
+	
+\begin{verbatim}
+> tt.filtered = oob.filter( tt.seq, tt.seq.oob, thresh=0.5, method=’spearman’ )
+\end{verbatim}
+
+\subsection{Collating predicted gene expression values}
+
+Predicted values should be collated as a data frame using the \texttt{get.predictions()} function. First, we get the names of test samples using the \texttt{get.names()} or \texttt{get.test()} functions.
+
+\begin{verbatim}
+> test.names = get.names( samples.fn=’samples.txt’, test=TRUE )
+> test.names = get.test( samples.fn=’samples.txt’ )
+\end{verbatim}
+
+The predictions can be quantile-normalized but this may be omitted.
+	
+\begin{verbatim}
+> df.malte.qn = get.predictions( tt.filtered, sample.names=test.names, 
+  qnorm=TRUE )
+\end{verbatim}
+
+then saved to file
+
+\begin{verbatim}
+> write.table( df.malte, file=’RP_malte_OOB_0p5_QN.txt’, 
+  col.name=TRUE, row.names=FALSE, quote=FALSE, sep=’\t’ )
+\end{verbatim}
+
+\pagebreak
+\section{Experimental features}
+
+\subsection{Per-gene/transcript tuning}
+
+Set \texttt{tune.cor.P=TRUE} in \texttt{TT.Params()}
+
+\begin{verbatim}
+> tt.params = TT.Params( tune.cor.P=TRUE )
+\end{verbatim}
+
+\subsection{Incorporating principal components}
+
+Principal components of probe intensities may be incorporated into the prediction. The same principal component will be used for all genes/transcript therefore they must be incorporated into the \textit{samples.txt} file to be dispatched to all genes/transcripts. We have experimented with the first 10 principal components. 
+
+\begin{verbatim}
+> load( “dnorm.data.Rdata” )	# load ‘qnorm.data’ from before
+> pc.data = princomp( qnorm.data )
+
+# save the first 10 principal components
+> pcs = pc.data$loadings[,1:10]
+> samples = read.table( ‘samples.txt’, header=TRUE )
+
+# create new samples data frame augmented with principal components
+> samples.aug = cbind( samples, pcs )
+> colnames( samples.aug ) = paste( ‘P’, 1:10, sep=’’ )
+
+# create a new samples file
+> write.table( samples.aug, file=’samples_aug.txt’, 
+  col.names=TRUE, row.names=FALSE, quote=FALSE, sep=’\t’ )
+\end{verbatim}
+
+We the run \texttt{prepare.data()} using \textit{samples\_aug.txt} (instead of \textit{samples.txt} as before) setting the variable \texttt{PCs=TRUE}. This creates two files: \textit{train\_PCs.txt} having the training principal components and a corresponding \textit{test\_PCs.txt}.
+
+\begin{verbatim}
+> prepare.data( samples.fn=samples.fn, hts.fn=hts.fn, ma.fn=ma.fn, 
+  g2p.fn=g2p.fn, PCs=TRUE )
+\end{verbatim} 
+
+Also, we need to run \texttt{read.data()} setting \texttt{PCs.present=TRUE},\\ \texttt{train.PCs.fn='train\_PCs.txt'} and \texttt{test.PCs.fn='test\_PCs.txt'}.
+
+\begin{verbatim}
+> tt.ready.pc <- read.data( train.fn="train_data.txt.gz", 
+  test.fn="test_data.txt.gz", PCs.present=TRUE, 
+  train.PCs.fn="train_PCs.txt", test.PCs.fn="test_PCs.txt"  )
+\end{verbatim} 
+
+The principal components are now embedded in the data for each gene.
+
+% \pagebreak
+% \section{License}
+% \label{license}
+% \begin{verbatim}
+% Copyright (C) 2013  Paul K. Korir 
+% 
+% This program is free software: you can redistribute it and/or modify it
+% under the terms of the GNU General Public License as published by the 
+% Free Software Foundation, either version 3 of the License, or (at your
+% option) any later version.
+% 
+% This program is distributed in the hope that it will be useful, but 
+% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+% or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License 
+% for more details.
+% 
+% You should have received a copy of the GNU General Public License along 
+% with this program.  If not, see <http://www.gnu.org/licenses/>.
+% \end{verbatim}
 
 \end{document}

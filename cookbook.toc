@@ -26,4 +26,17 @@
 \contentsline {section}{\numberline {11}Citing \textsf {MaLTE}}{15}{section.11}
 \contentsline {section}{\numberline {A}Classes}{16}{appendix.A}
 \contentsline {section}{\numberline {B}Function and Methods Table}{17}{appendix.B}
-\contentsline {section}{\numberline {C}License}{18}{appendix.C}
+\contentsline {section}{\numberline {C}Use Case: MaLTE trained with GTEx data applied on exon array}{18}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Obtaining auxiliary data and scripts}{18}{subsection.C.1}
+\contentsline {subsection}{\numberline {C.2}Working directory structure}{20}{subsection.C.2}
+\contentsline {subsection}{\numberline {C.3}Obtaining the MaLTE package}{20}{subsection.C.3}
+\contentsline {subsubsection}{\numberline {C.3.1}Creating the file \textit {samples.txt}}{21}{subsubsection.C.3.1}
+\contentsline {subsubsection}{\numberline {C.3.2}Obtaining the training data}{21}{subsubsection.C.3.2}
+\contentsline {subsection}{\numberline {C.4}Transforming exon array probes to gene array probes}{22}{subsection.C.4}
+\contentsline {subsection}{\numberline {C.5}Preparing the data for training-and-testing}{23}{subsection.C.5}
+\contentsline {subsection}{\numberline {C.6}Prediction}{23}{subsection.C.6}
+\contentsline {subsection}{\numberline {C.7}Filtering by OOB}{24}{subsection.C.7}
+\contentsline {subsection}{\numberline {C.8}Collating predicted gene expression values}{24}{subsection.C.8}
+\contentsline {section}{\numberline {D}Experimental features}{25}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}Per-gene/transcript tuning}{25}{subsection.D.1}
+\contentsline {subsection}{\numberline {D.2}Incorporating principal components}{25}{subsection.D.2}

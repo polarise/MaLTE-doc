@@ -26,4 +26,17 @@
 \BOOKMARK [1][-]{section.11}{Citing MaLTE}{}
 \BOOKMARK [1][-]{appendix.A}{Classes}{}
 \BOOKMARK [1][-]{appendix.B}{Function and Methods Table}{}
-\BOOKMARK [1][-]{appendix.C}{License}{}
+\BOOKMARK [1][-]{appendix.C}{Use Case: MaLTE trained with GTEx data applied on exon array}{}
+\BOOKMARK [2][-]{subsection.C.1}{Obtaining auxiliary data and scripts}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.2}{Working directory structure}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.3}{Obtaining the MaLTE package}{appendix.C}
+\BOOKMARK [3][-]{subsubsection.C.3.1}{Creating the file samples.txt}{subsection.C.3}
+\BOOKMARK [3][-]{subsubsection.C.3.2}{Obtaining the training data}{subsection.C.3}
+\BOOKMARK [2][-]{subsection.C.4}{Transforming exon array probes to gene array probes}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.5}{Preparing the data for training-and-testing}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.6}{Prediction}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.7}{Filtering by OOB}{appendix.C}
+\BOOKMARK [2][-]{subsection.C.8}{Collating predicted gene expression values}{appendix.C}
+\BOOKMARK [1][-]{appendix.D}{Experimental features}{}
+\BOOKMARK [2][-]{subsection.D.1}{Per-gene/transcript tuning}{appendix.D}
+\BOOKMARK [2][-]{subsection.D.2}{Incorporating principal components}{appendix.D}
