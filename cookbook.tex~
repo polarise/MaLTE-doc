@@ -23,7 +23,13 @@
 
 \usepackage[pdftex]{hyperref}
 
-\author{Paul Korir and Cathal Seoighe}
+\author{Paul K Korir and Prof. Cathal Seoighe\\
+\footnotesize
+School of Mathematics, Statistics and Applied Mathematics,\\
+\footnotesize
+National University of Ireland, Galway
+\normalsize
+}
 \title{\textbf{MaLTE: Machine Learning of Transcript Expression}\\\textit{An \textsf{R} Package Implementing the MaLTE Framework}}
 \date{}
 

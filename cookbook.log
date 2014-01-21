@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.5)  21 JAN 2014 09:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.5)  21 JAN 2014 11:02
 entering extended mode
  %&-line parsing enabled.
 **cookbook.tex
@@ -579,21 +579,21 @@ Writing index file cookbook.idx
 (./cookbook.aux)
 \openout1 = `cookbook.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 35.
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
@@ -659,7 +659,7 @@ driver: pdftex
 
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 35.
 (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -668,8 +668,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
  (./cookbook.out)
 (./cookbook.out)
 \@outlinefile=\write4
@@ -677,42 +677,42 @@ LaTeX Info: Redefining \pageref on input line 31.
 
 \AtBeginShipoutBox=\box59
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 33.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 37.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <20.74> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 33.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 37.
 
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 33.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 37.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 33.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 37.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 33.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 37.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 33.
+(Font)              scaled to size 15.0049pt on input line 37.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 33.
+(Font)              scaled to size 10.42007pt on input line 37.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 33.
+(Font)              scaled to size 8.33606pt on input line 37.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 15.0049pt on input line 33.
+(Font)              scaled to size 15.0049pt on input line 37.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 33.
+(Font)              scaled to size 10.42007pt on input line 37.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 33.
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 33.
+(Font)              scaled to size 8.33606pt on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 37.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1zplm.fd
@@ -721,7 +721,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 {/home/paulkorir/.texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 40.
  (./cookbook.toc
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1.
@@ -748,141 +748,141 @@ PDF version <1.5>, but at most version <1.4> allowed
 <schematic.pdf, id=243, 738.54411pt x 272.26097pt>
 File: schematic.pdf Graphic file (type pdf)
  <use schematic.pdf> [4 <./schematic.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 64.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 68.
  (/usr/share/texmf-texlive/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OMS/ppl/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
 
-Overfull \hbox (12.44225pt too wide) in paragraph at lines 66--67
+Overfull \hbox (12.44225pt too wide) in paragraph at lines 70--71
 \OT1/ppl/m/n/12 and func-tions in monospace ter-mi-nated with paren-the-ses (\O
 T1/cmtt/m/n/12 my.function()\OT1/ppl/m/n/12 ). Classes
  []
 
 
-Overfull \hbox (13.79819pt too wide) in paragraph at lines 86--87
+Overfull \hbox (13.79819pt too wide) in paragraph at lines 90--91
 \OT1/cmss/m/n/12 MaLTE \OT1/ppl/m/n/12 may be down-loaded from []$\OT1/cmtt/m/n
 /12 https : / / github . com / polarise / MaLTE-[]package$[]\OT1/ppl/m/n/12 . T
 here
  []
 
 [5]
-Overfull \hbox (5.91763pt too wide) in paragraph at lines 112--113
+Overfull \hbox (5.91763pt too wide) in paragraph at lines 116--117
 \OT1/ppl/m/n/12 Example data files are pro-vided with \OT1/cmss/m/n/12 MaLTE\OT
 1/ppl/m/n/12 , which are based on data from the HapMap
  []
 
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 131.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 135.
 [6] [7]
-Overfull \hbox (3.98233pt too wide) in paragraph at lines 221--221
+Overfull \hbox (3.98233pt too wide) in paragraph at lines 225--225
 []\OT1/cmtt/m/n/12 > write.table( df, file="filt_preds.txt", col.names=TRUE, ro
 w.names=FALSE,[] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmtt on input line 241
+LaTeX Font Info:    Try loading font information for OML+cmtt on input line 245
 .
-LaTeX Font Info:    No file OMLcmtt.fd. on input line 241.
+LaTeX Font Info:    No file OMLcmtt.fd. on input line 245.
 
 LaTeX Font Warning: Font shape `OML/cmtt/m/n' undefined
 (Font)              using `OML/cmm/m/it' instead
-(Font)              for symbol `textless' on input line 241.
+(Font)              for symbol `textless' on input line 245.
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 238--248
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 242--252
 [] 
  []
 
 [8]
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 252--261
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 256--265
 [] 
  []
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 265--274
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 269--278
 [] 
  []
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 278--287
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 282--291
 [] 
  []
 
 [9]
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 293.
+(Font)              scaled to size 7.91925pt on input line 297.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 293.
+(Font)              scaled to size 6.25204pt on input line 297.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 293.
+(Font)              scaled to size 7.91925pt on input line 297.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 293.
+(Font)              scaled to size 6.25204pt on input line 297.
 
-Overfull \hbox (4.14192pt too wide) in paragraph at lines 295--296
+Overfull \hbox (4.14192pt too wide) in paragraph at lines 299--300
 \OT1/ppl/m/n/12 normalization (QN) and back-ground cor-rec-tion (BC). The Affym
 etrix Power Tools
  []
 
 [10] [11] [12]
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 423--434
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 427--438
 [] 
  []
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 438--452
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 442--456
 []
  []
 
 [13]
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 456--468
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 460--472
 [] 
  []
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 472--481
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 476--485
 [] 
  []
 
 
-Overfull \hbox (23.44048pt too wide) in paragraph at lines 485--493
+Overfull \hbox (23.44048pt too wide) in paragraph at lines 489--497
 [] 
  []
 
 [14]
-Overfull \hbox (22.79254pt too wide) in paragraph at lines 499--500
+Overfull \hbox (22.79254pt too wide) in paragraph at lines 503--504
 []\OT1/ppl/b/n/12 GEP train-ing data. \OT1/ppl/m/n/12 This file is au-to-mat-i-
 cally gen-er-ated af-ter run-ning \OT1/cmtt/m/n/12 prepare.data()
  []
 
 [15]
-Overfull \hbox (16.33234pt too wide) in paragraph at lines 528--528
+Overfull \hbox (16.33234pt too wide) in paragraph at lines 532--532
 []\OT1/cmtt/m/n/12 > filt.indexes = .filter.trues( tt.seq.oob, filter.fpkm=1, f
 ilter.count=10 )[] 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 549.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 553.
 
-Overfull \hbox (5.20578pt too wide) in paragraph at lines 552--553
+Overfull \hbox (5.20578pt too wide) in paragraph at lines 556--557
 \OT1/ppl/m/n/12 probes be-low which no fea-ture se-lec-tion is car-ried out? De
 -faults to \OT1/cmtt/m/n/12 min.probes=15
  []
 
 [16]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 565.
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 569.
  [17] [18]
-Overfull \hbox (10.24097pt too wide) in paragraph at lines 604--605
+Overfull \hbox (10.24097pt too wide) in paragraph at lines 608--609
 []\OT1/cmtt/m/n/12 TT.Seq\OT1/ppl/m/n/12 . This class han-dles the re-sults of 
 train-ing and pre-dic-tion. Just like \OT1/cmtt/m/n/12 TT.Ready\OT1/ppl/m/n/12 
 ,
  []
 
 
-Overfull \hbox (15.2283pt too wide) in paragraph at lines 610--611
+Overfull \hbox (15.2283pt too wide) in paragraph at lines 614--615
 \OT1/ppl/m/n/12 low-ing slots: \OT1/cmtt/m/n/12 mtry\OT1/ppl/m/n/12 , \OT1/cmtt
 /m/n/12 ntree\OT1/ppl/m/n/12 , \OT1/cmtt/m/n/12 feature.select\OT1/ppl/m/n/12 ,
  \OT1/cmtt/m/n/12 min.probes\OT1/ppl/m/n/12 , \OT1/cmtt/m/n/12 cor.thresh\OT1/p
@@ -892,138 +892,138 @@ pl/m/n/12 , \OT1/cmtt/m/n/12 OOB\OT1/ppl/m/n/12 , \OT1/cmtt/m/n/12 quantreg\OT1
 
 [19]
 LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 625.
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 629.
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--627
+Underfull \hbox (badness 10000) in paragraph at lines 631--631
 []\OT1/cmtt/m/n/8 samples.fn\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 ma.fn \OT1/ppl/m/n
 /8 (OR \OT1/cmtt/m/n/8 raw[]ma.fn \OT1/ppl/m/n/8 with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--627
+Underfull \hbox (badness 10000) in paragraph at lines 631--631
 []\OT1/ppl/m/it/8 train[]data.txt.gz \OT1/ppl/m/n/8 and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--627
+Underfull \hbox (badness 10000) in paragraph at lines 631--631
 \OT1/ppl/m/it/8 test[]data.txt.gz \OT1/ppl/m/n/8 (to-gether with
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 627--628
+Underfull \hbox (badness 10000) in paragraph at lines 631--632
 []\OT1/ppl/m/n/8 This func-tion calls the un-der-ly-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--629
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
 []\OT1/cmtt/m/n/8 train.fn=`train[]data.txt.gz'\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 629--630
+Underfull \hbox (badness 1173) in paragraph at lines 633--634
 []\OT1/cmtt/m/n/8 tt.ready \OT1/ppl/m/n/8 is a list of ob-jects of class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 633--634
 \OT1/cmtt/m/n/8 TT.Ready.Gene \OT1/ppl/m/n/8 that has em-bed-ded
  []
 
 
-Overfull \hbox (5.36922pt too wide) in paragraph at lines 631--631
+Overfull \hbox (5.36922pt too wide) in paragraph at lines 635--635
 []\OT1/cmtt/m/n/8 prepare.txs.data()| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
+Underfull \hbox (badness 10000) in paragraph at lines 635--635
 []\OT1/ppl/m/it/8 train[]txs[]data.txt.gz\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
+Underfull \hbox (badness 10000) in paragraph at lines 635--635
 \OT1/ppl/m/it/8 test[]txs[]data.txt.gz \OT1/ppl/m/n/8 (to-gether
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 632--633
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
 []\OT1/ppl/m/n/8 This func-tion works like
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 632--633
+Underfull \hbox (badness 2538) in paragraph at lines 636--637
 \OT1/cmtt/m/n/8 prepare.data() \OT1/ppl/m/n/8 by call-ing the und-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 634--634
+Underfull \hbox (badness 10000) in paragraph at lines 638--638
 []\OT1/cmtt/m/n/8 train.fn=`train[]txs[]data.txt.gz'\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 6332) in paragraph at lines 636--636
+Underfull \hbox (badness 6332) in paragraph at lines 640--640
 []\OT1/cmtt/m/n/8 mtry=2\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 ntree=1000\OT1/ppl/m/n
 /8 , \OT1/cmtt/m/n/8 feature.select=TRUE\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--636
+Underfull \hbox (badness 10000) in paragraph at lines 640--640
 \OT1/cmtt/m/n/8 min.probes=15\OT1/ppl/m/n/8 , \OT1/cmtt/m/n/8 cor.thresh=0\OT1/
 ppl/m/n/8 , \OT1/cmtt/m/n/8 OOB=FALSE\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 640--641
 []\OT1/ppl/m/n/8 Constructor for ob-jects of class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 []\OT1/ppl/m/n/8 Performs pre-dic-tion on a sin-gle
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 638--639
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
 \OT1/cmtt/m/n/8 TT.Ready.Gene \OT1/ppl/m/n/8 or \OT1/cmtt/m/n/8 TT.Ready.Txs
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 640--640
+Underfull \hbox (badness 10000) in paragraph at lines 644--644
 []\OT1/cmtt/m/n/8 array2seq()\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 640--641
+Underfull \hbox (badness 3281) in paragraph at lines 644--645
 []\OT1/cmtt/m/n/8 tt.seq \OT1/ppl/m/n/8 is a list of \OT1/cmtt/m/n/8 TT.Seq.Gen
 e \OT1/ppl/m/n/8 or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--643
+Underfull \hbox (badness 10000) in paragraph at lines 645--647
 []\OT1/ppl/m/n/8 The parallelised-list ver-sion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--644
+Underfull \hbox (badness 10000) in paragraph at lines 648--648
 []\OT1/cmtt/m/n/8 tt.seq/tt.seq.txs\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 650--650
+Underfull \hbox (badness 10000) in paragraph at lines 654--654
 []\OT1/cmtt/m/n/8 tt.predicted \OT1/ppl/m/n/8 OR
  []
 
 
-Overfull \hbox (1.11916pt too wide) in paragraph at lines 652--652
+Overfull \hbox (1.11916pt too wide) in paragraph at lines 656--656
 []\OT1/cmtt/m/n/8 get.predictions()| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--658
+Underfull \hbox (badness 10000) in paragraph at lines 662--662
 []\OT1/cmtt/m/n/8 get.names()\OT1/ppl/m/n/8 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--658
+Underfull \hbox (badness 10000) in paragraph at lines 662--662
 \OT1/cmtt/m/n/8 get.train()\OT1/ppl/m/n/8 ,
  []
 
@@ -1032,59 +1032,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 658--658
 ] <schematic1.pdf, id=414, 796.43188pt x 1397.64542pt>
 File: schematic1.pdf Graphic file (type pdf)
  <use schematic1.pdf>
-Overfull \hbox (5.55624pt too wide) in paragraph at lines 704--705
+Overfull \hbox (5.55624pt too wide) in paragraph at lines 708--709
 []\OT1/ppl/m/n/12 This di-rec-tory con-tains pre-compiled re-source files de-sc
 ribed in Ta-ble []1[]. \OT1/ppl/b/n/12 We strongly
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 715--715
+Underfull \hbox (badness 2512) in paragraph at lines 719--719
 []\OT1/ppl/m/n/12 The \OT1/cmss/m/n/12 Python \OT1/ppl/m/n/12 script is used to
 
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 715--715
+Underfull \hbox (badness 1509) in paragraph at lines 719--719
 \OT1/ppl/m/n/12 omit-ted in the pro-cess. The
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 723--723
+Underfull \hbox (badness 3679) in paragraph at lines 727--727
 []\OT1/ppl/m/n/12 Data files re-quired by \OT1/ppl/m/it/12 trans-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--729
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
 []\OT1/ppl/m/n/12 Input data files re-quired
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--729
+Underfull \hbox (badness 10000) in paragraph at lines 733--733
 \OT1/ppl/m/n/12 to run the \OT1/cmss/m/n/12 MaLTE \OT1/ppl/m/n/12 func-tion
  []
 
 [21
 
 ] [22 <./schematic1.pdf>] [23]
-Overfull \hbox (7.2302pt too wide) in paragraph at lines 796--797
+Overfull \hbox (7.2302pt too wide) in paragraph at lines 800--801
 \OT1/ppl/m/n/12 from []$\OT1/cmtt/m/n/12 https : / / drive . google . com / fil
 e / d / 0BxLgaMV5aZahVDNjM29WeGh2NHM / edit ? usp =
  []
 
 
-Overfull \hbox (24.50734pt too wide) in paragraph at lines 798--800
+Overfull \hbox (24.50734pt too wide) in paragraph at lines 802--804
 \OT1/cmtt/m/n/12 www . affymetrix . com / estore / catalog / prod350003 / AFFY 
 / Human-[]Gene-[]ST-[]Array-[]Strips #
  []
 
 
-Overfull \hbox (51.98595pt too wide) in paragraph at lines 819--821
+Overfull \hbox (51.98595pt too wide) in paragraph at lines 823--825
 \OT1/cmtt/m/n/12 affymetrix . com / estore / catalog / 131452 / AFFY / Human-[]
 Exon-[]ST-[]Array$[]\OT1/ppl/m/n/12 . Sim-i-larly, background-
  []
 
 [24] [25] [26]
-Overfull \hbox (34.85735pt too wide) in paragraph at lines 949--949
+Overfull \hbox (34.85735pt too wide) in paragraph at lines 953--953
 []\OT1/cmtt/m/n/12 > tt.filtered = oob.filter( tt.seq, tt.seq.oob, thresh=0.5, 
 method=`spearman' )[] 
  []
@@ -1116,7 +1116,7 @@ ic/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
 sr/share/texmf-texlive/fonts/type1/urw/palatino/uplbi8a.pfb></usr/share/texmf-t
 exlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type
 1/urw/palatino/uplri8a.pfb>
-Output written on cookbook.pdf (28 pages, 351937 bytes).
+Output written on cookbook.pdf (28 pages, 352037 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  120 named destinations out of 1000 (max. 500000)
