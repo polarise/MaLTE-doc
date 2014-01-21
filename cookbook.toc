@@ -1,42 +1,43 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {section}{\numberline {2}Conventions Used}{4}{section.2}
-\contentsline {section}{\numberline {3}System Requirements}{4}{section.3}
-\contentsline {section}{\numberline {4}Installation}{4}{section.4}
-\contentsline {section}{\numberline {5}Datasets Provided}{5}{section.5}
-\contentsline {section}{\numberline {6}Gene Expression Prediction}{5}{section.6}
-\contentsline {subsection}{\numberline {6.1}Quick Start Guide}{5}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Detailed Instructions}{7}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}Sample names file}{7}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}HTS data file}{8}{subsubsection.6.2.2}
-\contentsline {subsubsection}{\numberline {6.2.3}Microarray data file}{8}{subsubsection.6.2.3}
-\contentsline {subsubsection}{\numberline {6.2.4}Gene-to-probe set map}{8}{subsubsection.6.2.4}
-\contentsline {subsection}{\numberline {6.3}Preparing Input Files}{8}{subsection.6.3}
-\contentsline {section}{\numberline {7}Transcript Expression Prediction}{10}{section.7}
-\contentsline {subsection}{\numberline {7.1}Quick Start Guide}{10}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Detailed Instructions}{11}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {7.2.1}Sample names file}{11}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {7.2.2}GEP training data file}{12}{subsubsection.7.2.2}
-\contentsline {subsubsection}{\numberline {7.2.3}GEP test data file}{12}{subsubsection.7.2.3}
-\contentsline {subsubsection}{\numberline {7.2.4}Transcript HTS data file}{12}{subsubsection.7.2.4}
-\contentsline {subsubsection}{\numberline {7.2.5}Gene-to-transcript map}{13}{subsubsection.7.2.5}
-\contentsline {subsection}{\numberline {7.3}Preparing Input Files}{13}{subsection.7.3}
-\contentsline {section}{\numberline {8}Filtering and Collating Predictions}{13}{section.8}
-\contentsline {section}{\numberline {9}Future Work}{14}{section.9}
-\contentsline {section}{\numberline {10}Bug Reports}{14}{section.10}
-\contentsline {section}{\numberline {11}Citing \textsf {MaLTE}}{15}{section.11}
-\contentsline {section}{\numberline {A}Classes}{16}{appendix.A}
-\contentsline {section}{\numberline {B}Function and Methods Table}{17}{appendix.B}
-\contentsline {section}{\numberline {C}Use Case: MaLTE trained with GTEx data applied on exon array}{18}{appendix.C}
-\contentsline {subsection}{\numberline {C.1}Obtaining auxiliary data and scripts}{18}{subsection.C.1}
-\contentsline {subsection}{\numberline {C.2}Working directory structure}{20}{subsection.C.2}
-\contentsline {subsection}{\numberline {C.3}Obtaining the MaLTE package}{20}{subsection.C.3}
-\contentsline {subsubsection}{\numberline {C.3.1}Creating the file \textit {samples.txt}}{21}{subsubsection.C.3.1}
-\contentsline {subsubsection}{\numberline {C.3.2}Obtaining the training data}{21}{subsubsection.C.3.2}
-\contentsline {subsection}{\numberline {C.4}Transforming exon array probes to gene array probes}{22}{subsection.C.4}
-\contentsline {subsection}{\numberline {C.5}Preparing the data for training-and-testing}{23}{subsection.C.5}
-\contentsline {subsection}{\numberline {C.6}Prediction}{23}{subsection.C.6}
-\contentsline {subsection}{\numberline {C.7}Filtering by OOB}{24}{subsection.C.7}
-\contentsline {subsection}{\numberline {C.8}Collating predicted gene expression values}{24}{subsection.C.8}
-\contentsline {section}{\numberline {D}Experimental features}{25}{appendix.D}
-\contentsline {subsection}{\numberline {D.1}Per-gene/transcript tuning}{25}{subsection.D.1}
-\contentsline {subsection}{\numberline {D.2}Incorporating principal components}{25}{subsection.D.2}
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}
+\contentsline {section}{\numberline {2}Conventions Used}{5}{section.2}
+\contentsline {section}{\numberline {3}System Requirements}{5}{section.3}
+\contentsline {section}{\numberline {4}Installation}{5}{section.4}
+\contentsline {section}{\numberline {5}Example Dataset}{6}{section.5}
+\contentsline {section}{\numberline {6}Gene Expression Prediction}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}Quick Start Guide}{6}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Detailed Instructions}{8}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Sample Names File}{9}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}HTS Data File}{9}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Microarray Data File}{9}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Gene-to-Probe Set Map}{10}{subsubsection.6.2.4}
+\contentsline {subsection}{\numberline {6.3}Preparing Input Files}{10}{subsection.6.3}
+\contentsline {section}{\numberline {7}Transcript Isoform Expression Prediction}{11}{section.7}
+\contentsline {subsection}{\numberline {7.1}Quick Start Guide}{11}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Detailed Instructions}{13}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Sample Names File}{13}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}GEP Training Data File}{14}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {7.2.3}GEP Test Data File}{14}{subsubsection.7.2.3}
+\contentsline {subsubsection}{\numberline {7.2.4}Transcript HTS Data File}{14}{subsubsection.7.2.4}
+\contentsline {subsubsection}{\numberline {7.2.5}Gene-to-Transcript Map}{15}{subsubsection.7.2.5}
+\contentsline {subsection}{\numberline {7.3}Preparing Input Files}{15}{subsection.7.3}
+\contentsline {section}{\numberline {8}Filtering and Collating Predictions}{15}{section.8}
+\contentsline {section}{\numberline {9}Training Parameters}{16}{section.9}
+\contentsline {section}{\numberline {10}Future Work}{17}{section.10}
+\contentsline {section}{\numberline {11}Bug Reports}{17}{section.11}
+\contentsline {section}{\numberline {12}Citing \textsf {MaLTE}}{17}{section.12}
+\contentsline {section}{\numberline {A}Classes}{19}{appendix.A}
+\contentsline {section}{\numberline {B}Function and Methods Table}{20}{appendix.B}
+\contentsline {section}{\numberline {C}Use Case: MaLTE Trained with GTEx Data Applied on Exon Array}{21}{appendix.C}
+\contentsline {subsection}{\numberline {C.1}Obtaining Auxiliary Data and Scripts}{21}{subsection.C.1}
+\contentsline {subsection}{\numberline {C.2}Working Directory Structure}{23}{subsection.C.2}
+\contentsline {subsection}{\numberline {C.3}Obtaining MaLTE}{23}{subsection.C.3}
+\contentsline {subsubsection}{\numberline {C.3.1}Creating the file \textit {samples.txt}}{24}{subsubsection.C.3.1}
+\contentsline {subsubsection}{\numberline {C.3.2}Obtaining the training data}{24}{subsubsection.C.3.2}
+\contentsline {subsection}{\numberline {C.4}Transforming exon array probes to gene array probes}{25}{subsection.C.4}
+\contentsline {subsection}{\numberline {C.5}Preparing the data for training-and-testing}{26}{subsection.C.5}
+\contentsline {subsection}{\numberline {C.6}Prediction}{26}{subsection.C.6}
+\contentsline {subsection}{\numberline {C.7}Filtering by OOB}{27}{subsection.C.7}
+\contentsline {subsection}{\numberline {C.8}Collating predicted gene expression values}{27}{subsection.C.8}
+\contentsline {section}{\numberline {D}Experimental features}{28}{appendix.D}
+\contentsline {subsection}{\numberline {D.1}Per-gene/transcript tuning}{28}{subsection.D.1}
+\contentsline {subsection}{\numberline {D.2}Incorporating principal components}{28}{subsection.D.2}
