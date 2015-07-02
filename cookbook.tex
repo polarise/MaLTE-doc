@@ -14,6 +14,8 @@
 \usepackage{listings}
 \usepackage{float}
 \usepackage{multirow}
+\usepackage{color}
+\usepackage{fancyvrb}
 \lstset{breaklines=true}
 \lstset{basicstyle=\ttfamily}
 \lstset{framesep=10pt}
@@ -24,9 +26,11 @@
 \usepackage[pdftex]{hyperref}
 
 \title{\textbf{MaLTE: Machine Learning of Transcript Expression}\\\textit{An \textsf{R} Package Implementing the MaLTE Framework}}
-\author{Paul K Korir and Prof. Cathal Seoighe\\
+\author{Paul K Korir$^{1}$ and Cathal Seoighe$^2$\\
 \\
-School of Mathematics, Statistics and Applied Mathematics,\\
+$^{1}$School of Biochemistry and Cell Biology,\\
+University College Cork, Cork \\
+$^{2}$School of Mathematics, Statistics and Applied Mathematics,\\
 National University of Ireland, Galway
 }
 \date{}
@@ -615,6 +619,40 @@ The \textsf{R} \textsf{MaLTE} package uses three main classes.
 \end{enumerate}
 
 More information on these classes can be found in the \textsf{MaLTE} manual that accompanies the package.
+
+\pagebreak
+\section{Using Alternative Learning Algorithms (Experimental)}
+\label{alternate_learner}
+MaLTE is designed as a framework and this allows the user to specify alternative learning algorithms. To do this requires two steps: importing the required library and incorporating the appropriate call to the model-building function.
+
+For example, to use multivariate adaptive regression splines (MARS) as the learner, we would do the following:
+
+\begin{enumerate}
+\item Add the name of the library into line 8 of the \texttt{DESCRIPTION} file in the package root. In this example, we import the \texttt{mda} package (assuming it is installed).
+
+\begin{verbatim}
+8: Depends: R (>= 2.14.0), methods, party, multicore, \
+   quantregForest, limma, mda
+\end{verbatim}
+
+\item We then modify the \texttt{model} by implementing the appropriate signature. Changes have to be made to either line 77 or line 80 of \texttt{train\_and\_predict.R}:
+
+\begin{verbatim}
+74: # the model
+75: if ( quantreg )
+76: {
+77: 	model <- quantregForest( y=D[,1], x=D[,2:ncol( D )],\
+    mtry=mtry, ntree=ntree )
+78: } else
+79: {
+80: 	model <- mars( x=D[,2:ncol(D), y=D[,1] )
+81: }	
+\end{verbatim}
+\end{enumerate}
+
+Modifying the learning algorithm may disable certain features. For example, out-of-bag (OOB) estimates are only available using forest models. Additionally, prediction of expression of transcript isoforms depends on the configuration of the learning algorithm to provide multiple response regression.
+
+Please use the contact information provided in Section \ref{bugs} to report any undesirable behaviour.
 
 \pagebreak
 \begin{landscape}

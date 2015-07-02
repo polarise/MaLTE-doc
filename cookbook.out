@@ -1,43 +1,44 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}
-\BOOKMARK [1][-]{section.2}{Conventions Used}{}
-\BOOKMARK [1][-]{section.3}{System Requirements}{}
-\BOOKMARK [1][-]{section.4}{Installation}{}
-\BOOKMARK [1][-]{section.5}{Example Dataset}{}
-\BOOKMARK [1][-]{section.6}{Gene Expression Prediction}{}
-\BOOKMARK [2][-]{subsection.6.1}{Quick Start Guide}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Detailed Instructions}{section.6}
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Sample Names File}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.2}{HTS Data File}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.3}{Microarray Data File}{subsection.6.2}
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Gene-to-Probe Set Map}{subsection.6.2}
-\BOOKMARK [2][-]{subsection.6.3}{Preparing Input Files}{section.6}
-\BOOKMARK [1][-]{section.7}{Transcript Isoform Expression Prediction}{}
-\BOOKMARK [2][-]{subsection.7.1}{Quick Start Guide}{section.7}
-\BOOKMARK [2][-]{subsection.7.2}{Detailed Instructions}{section.7}
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Sample Names File}{subsection.7.2}
-\BOOKMARK [3][-]{subsubsection.7.2.2}{GEP Training Data File}{subsection.7.2}
-\BOOKMARK [3][-]{subsubsection.7.2.3}{GEP Test Data File}{subsection.7.2}
-\BOOKMARK [3][-]{subsubsection.7.2.4}{Transcript HTS Data File}{subsection.7.2}
-\BOOKMARK [3][-]{subsubsection.7.2.5}{Gene-to-Transcript Map}{subsection.7.2}
-\BOOKMARK [2][-]{subsection.7.3}{Preparing Input Files}{section.7}
-\BOOKMARK [1][-]{section.8}{Filtering and Collating Predictions}{}
-\BOOKMARK [1][-]{section.9}{Training Parameters}{}
-\BOOKMARK [1][-]{section.10}{Future Work}{}
-\BOOKMARK [1][-]{section.11}{Bug Reports}{}
-\BOOKMARK [1][-]{section.12}{Citing MaLTE}{}
-\BOOKMARK [1][-]{appendix.A}{Classes}{}
-\BOOKMARK [1][-]{appendix.B}{Function and Methods Table}{}
-\BOOKMARK [1][-]{appendix.C}{Use Case: MaLTE Trained with GTEx Data Applied on Exon Array}{}
-\BOOKMARK [2][-]{subsection.C.1}{Obtaining Auxiliary Data and Scripts}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.2}{Working Directory Structure}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.3}{Obtaining MaLTE}{appendix.C}
-\BOOKMARK [3][-]{subsubsection.C.3.1}{Creating the file samples.txt}{subsection.C.3}
-\BOOKMARK [3][-]{subsubsection.C.3.2}{Obtaining the training data}{subsection.C.3}
-\BOOKMARK [2][-]{subsection.C.4}{Transforming exon array probes to gene array probes}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.5}{Preparing the data for training-and-testing}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.6}{Prediction}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.7}{Filtering by OOB}{appendix.C}
-\BOOKMARK [2][-]{subsection.C.8}{Collating predicted gene expression values}{appendix.C}
-\BOOKMARK [1][-]{appendix.D}{Experimental features}{}
-\BOOKMARK [2][-]{subsection.D.1}{Per-gene/transcript tuning}{appendix.D}
-\BOOKMARK [2][-]{subsection.D.2}{Incorporating principal components}{appendix.D}
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Conventions Used}{}% 2
+\BOOKMARK [1][-]{section.3}{System Requirements}{}% 3
+\BOOKMARK [1][-]{section.4}{Installation}{}% 4
+\BOOKMARK [1][-]{section.5}{Example Dataset}{}% 5
+\BOOKMARK [1][-]{section.6}{Gene Expression Prediction}{}% 6
+\BOOKMARK [2][-]{subsection.6.1}{Quick Start Guide}{section.6}% 7
+\BOOKMARK [2][-]{subsection.6.2}{Detailed Instructions}{section.6}% 8
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Sample Names File}{subsection.6.2}% 9
+\BOOKMARK [3][-]{subsubsection.6.2.2}{HTS Data File}{subsection.6.2}% 10
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Microarray Data File}{subsection.6.2}% 11
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Gene-to-Probe Set Map}{subsection.6.2}% 12
+\BOOKMARK [2][-]{subsection.6.3}{Preparing Input Files}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{Transcript Isoform Expression Prediction}{}% 14
+\BOOKMARK [2][-]{subsection.7.1}{Quick Start Guide}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.2}{Detailed Instructions}{section.7}% 16
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Sample Names File}{subsection.7.2}% 17
+\BOOKMARK [3][-]{subsubsection.7.2.2}{GEP Training Data File}{subsection.7.2}% 18
+\BOOKMARK [3][-]{subsubsection.7.2.3}{GEP Test Data File}{subsection.7.2}% 19
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Transcript HTS Data File}{subsection.7.2}% 20
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Gene-to-Transcript Map}{subsection.7.2}% 21
+\BOOKMARK [2][-]{subsection.7.3}{Preparing Input Files}{section.7}% 22
+\BOOKMARK [1][-]{section.8}{Filtering and Collating Predictions}{}% 23
+\BOOKMARK [1][-]{section.9}{Training Parameters}{}% 24
+\BOOKMARK [1][-]{section.10}{Future Work}{}% 25
+\BOOKMARK [1][-]{section.11}{Bug Reports}{}% 26
+\BOOKMARK [1][-]{section.12}{Citing MaLTE}{}% 27
+\BOOKMARK [1][-]{appendix.A}{Classes}{}% 28
+\BOOKMARK [1][-]{appendix.B}{Using Alternative Learning Algorithms \(Experimental\)}{}% 29
+\BOOKMARK [1][-]{appendix.C}{Function and Methods Table}{}% 30
+\BOOKMARK [1][-]{appendix.D}{Use Case: MaLTE Trained with GTEx Data Applied on Exon Array}{}% 31
+\BOOKMARK [2][-]{subsection.D.1}{Obtaining Auxiliary Data and Scripts}{appendix.D}% 32
+\BOOKMARK [2][-]{subsection.D.2}{Working Directory Structure}{appendix.D}% 33
+\BOOKMARK [2][-]{subsection.D.3}{Obtaining MaLTE}{appendix.D}% 34
+\BOOKMARK [3][-]{subsubsection.D.3.1}{Creating the file samples.txt}{subsection.D.3}% 35
+\BOOKMARK [3][-]{subsubsection.D.3.2}{Obtaining the training data}{subsection.D.3}% 36
+\BOOKMARK [2][-]{subsection.D.4}{Transforming exon array probes to gene array probes}{appendix.D}% 37
+\BOOKMARK [2][-]{subsection.D.5}{Preparing the data for training-and-testing}{appendix.D}% 38
+\BOOKMARK [2][-]{subsection.D.6}{Prediction}{appendix.D}% 39
+\BOOKMARK [2][-]{subsection.D.7}{Filtering by OOB}{appendix.D}% 40
+\BOOKMARK [2][-]{subsection.D.8}{Collating predicted gene expression values}{appendix.D}% 41
+\BOOKMARK [1][-]{appendix.E}{Experimental features}{}% 42
+\BOOKMARK [2][-]{subsection.E.1}{Per-gene/transcript tuning}{appendix.E}% 43
+\BOOKMARK [2][-]{subsection.E.2}{Incorporating principal components}{appendix.E}% 44
